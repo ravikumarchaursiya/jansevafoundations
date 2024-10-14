@@ -1,0 +1,77 @@
+.swiper-content {
+    position: relative;
+  }
+
+.text-over-image {
+    position: absolute;
+    top: 50%;
+    left: 350px; /* 100px left margin */
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+    max-width: 450px; /* Maximum of 100 characters per line */
+    white-space: pre-line; /* Allow for line breaks */
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .content {
+    background-size: cover;
+    background-position: center;
+    width: 400px;
+    height: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    // background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+    box-shadow: none;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .ptext {
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* Adds a shadow to the text */
+    background: linear-gradient(45deg, #f3ec78, #af4261); /* Adds a gradient background */
+    border: 2px solid #333; /* Adds a border around the text */
+    padding: 5px; /* Adds some padding inside the border */
+    display: inline-block; /* Makes the background and border wrap around the text */
+    color: white; /* Sets the text color to white */
+    transform: rotate(-2deg); /* Rotates the text slightly */
+}
+
+  
+  .content button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .content button:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
+    .text-over-image {
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: none;
+      padding: 0 10px;
+      text-align: center;
+    }
+  }
+  
+  @media (min-width: 769px) {
+    .text-over-image {
+      left: 350px;
+    }
+  }
+  

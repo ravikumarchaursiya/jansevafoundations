@@ -1,0 +1,17 @@
+.justify-text {
+    font-family: Arial, sans-serif; /* Specify your desired font family */
+    padding: 20px;
+    background: linear-gradient(45deg, #ffffff, #ffffff);
+    color: black;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: justify;
+    line-height: 35px;
+    border:1px solid gray;
+  }
+  
+  .justify-text:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  }

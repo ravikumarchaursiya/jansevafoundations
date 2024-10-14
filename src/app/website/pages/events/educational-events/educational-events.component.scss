@@ -1,0 +1,24 @@
+.vertical-slider .owl-item {
+    display: block;
+    margin-bottom: 20px; /* Space between items */
+}
+
+.vertical-slider .owl-item .single-events {
+    display: block;
+    width: 100%;
+}
+
+.vertical-slider .owl-item .single-events .news-img,
+.vertical-slider .owl-item .single-events .news-content {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.vertical-slider .owl-item .single-events .news-img {
+    width: 40%; /* Adjust as needed */
+    margin-right: 10px; /* Space between image and content */
+}
+
+.vertical-slider .owl-item .single-events .news-content {
+    width: 50%; /* Adjust as needed */
+}

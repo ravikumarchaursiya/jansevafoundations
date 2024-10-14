@@ -1,0 +1,113 @@
+<header class="header-area">
+    <!-- top header area -->
+    <div class="top-header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <!-- header contact -->
+                    <div class="top-header-info">
+                        <i class="fa fa-clock-o"></i> Sun - Sat, <span class="seprator">|</span>
+                        <a href="#"><i class="fa fa-phone"></i>92-50-01-12-70</a><span class="seprator">|</span>
+                        <a href="mailto:Janseva@gmail.com"><i class="fa fa-envelope"></i>Janseva@gmail.com</a>
+                    </div>
+                </div>
+                <div class="col-md-5 text-right">
+                    <!-- header support -->
+                    <div class="top-header-info header-right">
+                        <a href="#">faq</a><span class="seprator">|</span>
+                        <a href="#">contact us</a><span class="seprator">|</span>
+                        <a href="#">live chat</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- menu area -->
+    <div class="menu-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <!-- logo part -->
+                    <div >
+                        <a [routerLink]="['/']"><img src="../../../assets/logo/janseva.png" alt="" style="height: 81px;width: 145px; margin-top: 1px;"></a>
+                    </div>
+                    <!-- mobile menu wraper -->
+                    <div class="responsive-menu-wrap"></div>
+                </div>
+                <div class="col-md-10">
+                    <!-- menu part -->
+                    <nav class="main-menu">
+                        <ul class="navigation">
+                            <li><a [routerLink]="['/']" class="hvr-shutter-out-horizontal">home</a></li>
+                            <!-- <li><a [routerLink]="['/about']">about us</a></li> -->
+                               <li><a [routerLink]="['/about']">about us
+                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </a>
+                                <ul class="drop-menu">
+                                    <li><a [routerLink]="['/about/founders-message']">founders-message</a></li>
+                                    <li><a [routerLink]="['about/board-members']">board-members</a></li>
+                                    <li><a [routerLink]="['/about/team-members']">team-members</a></li>
+                                    <li><a [routerLink]="['about/doners']">doners</a></li>
+                                     <!-- <li><a href="gallery-three.html"></a></li>  -->
+                                </ul>
+                            </li>
+                            <li><a [routerLink]="['/gallery']">gallery
+                                <!-- <i class="fa fa-caret-down" aria-hidden="true"></i> -->
+                            </a>
+                                <!-- <ul class="drop-menu">
+                                    <li><a [routerLink]="['/ChildGallery']">Child Gallery</a></li>
+                                    <li><a [routerLink]="['/EventGallery']">Event Gallery</a></li>
+                                     <li><a href="gallery-three.html"></a></li> 
+                                </ul> -->
+                            </li>
+                            <li><a [routerLink]="['/volunteer']">volunteers
+                                <!-- <i class="fa fa-caret-down" aria-hidden="true"></i> -->
+                            </a>
+                                <!-- <ul class="drop-menu">
+                                    <li><a href="volunteers-3col.html">volunteers 3col</a></li>
+                                    <li><a href="volunteers-4col.html">volunteers 4col</a></li>
+                                    <li><a href="volunteers-details.html">single volunteers</a></li>
+                                </ul> -->
+                            </li>
+                            <li><a [routerLink]="['/events']">events
+                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </a>
+                                <ul class="drop-menu">
+                                    <li><a [routerLink]="['events/educational']">Educational </a></li>
+                                    <li><a [routerLink]="['events/social']">Social</a></li>
+                                    <li><a [routerLink]="['events/awareness']">Awareness</a></li>
+                                </ul>
+                            </li>
+                            <li><a [routerLink]="['/our-work']">Our Work
+                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </a>
+                                <ul class="drop-menu">
+                                    <li><a [routerLink]="['our-work/education&training']">Education & Training</a></li>
+                                    <li><a [routerLink]="['our-work/social-empowerment']">Social Empowerment</a></li>
+                                    <li><a [routerLink]="['our-work/employment']">Employment</a></li>
+                                    <li><a [routerLink]="['our-work/social']">Social & Cultural Education</a></li>
+                                    <li><a [routerLink]="['our-work/health']">Health & Hygine</a></li>
+                                    <li><a [routerLink]="['our-work/skill-development']">Skill Development</a></li>
+                                </ul>
+                            </li>
+                            <!-- <li><a [routerLink]="['/blog']">blog
+                                <i class="fa fa-caret-down" aria-hidden="true"></i>
+                            </a>
+                           
+                            </li> -->
+                            <li><a [routerLink]="['/contact-us']">contact us</a></li>
+                        </ul>
+                    </nav>
+                    <!-- donate box -->
+                    <div class="donate-box">
+                        &nbsp;<a [routerLink]="['/donate']" class="donate-btn hvr-shutter-out-horizontal ml-3">donate</a>&nbsp;
+                        <a [routerLink]="['/login']" class="donate-btn hvr-shutter-out-horizontal">login</a>
+                    </div>
+                    
+                </div>
+                
+               
+            </div>
+        </div>
+    </div>
+</header>

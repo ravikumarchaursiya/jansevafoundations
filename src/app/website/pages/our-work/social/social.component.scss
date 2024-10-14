@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Avenir, sans-serif;
+    scroll-behavior: smooth;
+}
+section{
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+text-align: center;
+padding: 2vw;
+text-shadow: 0px 0px 5px rgba(0,0,0,0.4);
+background-repeat: no-repeat;
+background-size: cover;
+background-attachment: fixed;
+}
+
+section h2{
+font-size: 5vw;
+}
+section:nth-of-type(1) {
+    background-image: url(https://www.adotrip.com/public/images/state/master_images/5f3bb17fddc76-Uttar_Pradesh_Attractions.jpg);
+    color: #fff;	
+}
+section:nth-of-type(3) {
+    background-image: url(https://www.wallpapers13.com/wp-content/uploads/2016/09/Taj-Mahal-Mausoleum-on-the-south-bank-of-the-Yamuna-River-in-the-Indian-city-of-Agra-in-India-HD-wallpaper-3840x2160.jpg);
+    color: #fff;	
+}
+section:nth-of-type(5) {
+    background-image: url(https://live.staticflickr.com/421/31748811683_a1ce6e0516_c.jpg);
+    color: #fff;	
+}
