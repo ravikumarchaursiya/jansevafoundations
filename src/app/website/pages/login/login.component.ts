@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit {
 loginForm:FormGroup
-email:any = 'rchauirsiya383@gmail.com'
+email:any = 'rchaurasiya383@gmail.com'
 password:any = '123456789'
   constructor(private fb:FormBuilder,private router:Router,private toastr:ToastrService) { }
   ngOnInit(): void {
@@ -24,6 +24,7 @@ password:any = '123456789'
       const obj = this.loginForm.getRawValue()
       if(obj.email === this.email && obj.password === this.password){
         this.router.navigateByUrl('/dashboard')
+        this.toastr.success('Hello world!', 'Toastr fun!');
       }else{
         this.toastr.error("Inavlid Email Id & password")
       }
