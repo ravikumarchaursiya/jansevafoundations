@@ -1,0 +1,7 @@
+.navbar-vertical {
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-vertical.hidden {
+    transform: translateX(-100%);
+  }

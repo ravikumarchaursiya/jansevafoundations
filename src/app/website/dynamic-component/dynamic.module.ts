@@ -21,8 +21,6 @@ import { MarqueeSliderComponent } from './marquee-slider/marquee-slider.componen
 import { MaterialModule } from '../shared/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [
     InputComponent,
