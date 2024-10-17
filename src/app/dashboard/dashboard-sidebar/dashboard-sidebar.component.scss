@@ -1,0 +1,24 @@
+.nav-link {
+    margin-top: 2px;
+}
+.nav-item.active > .nav-link {
+    position: relative;
+    background-color: #fafafa;
+    color: black;
+    border-top-right-radius: 92px;
+    border-bottom-right-radius: 82px;
+    max-width: 248px;
+}
+.nav-item > .nav-link:hover {
+    position: relative;
+    background-color: #fafafa;
+    color: black !important;
+    border-top-right-radius: 92px;
+    border-bottom-right-radius: 82px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+    max-width: 248px;
+}
+.submenu-item-link{
+    border-top-right-radius: 1px;
+    border-bottom-right-radius: 1px;
+}

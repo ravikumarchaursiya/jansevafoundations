@@ -76,7 +76,7 @@ const routes:Routes = [{
     SocialCulturalWorkComponent,
     SkillDevlopmentComponent,
     SocialEventComponent,
-    EducationalEventComponent
+    EducationalEventComponent,
   ],
   imports: [
     CommonModule,
