@@ -13,9 +13,19 @@ import { TeamComponent } from './component/team/team.component';
 import { TeamListComponent } from './component/team-list/team-list.component';
 import { DonerComponent } from './component/doner/doner.component';
 import { DonerListComponent } from './component/doner-list/doner-list.component';
+import { BoardMemberComponent } from './component/board-member/board-member.component';
+import { BoardMemberListComponent } from './component/board-member-list/board-member-list.component';
+import { EventsComponent } from './component/events/events/events.component';
 
 const routes:Routes = [{
-  path:'',component:DashboardWarapperComponent
+  path:'',component:DashboardWarapperComponent,children:[
+    {path:'doner',component:DonerComponent},
+    {path:'doner-list',component:DonerListComponent},
+    {path:'volounteer',component:VolounteerComponent},
+    {path:'volounteer-list',component:VolounteerListComponent},
+    {path:'team',component:TeamComponent},
+    {path:'team-list',component:TeamListComponent},
+  ]
 }]
 
 @NgModule({
@@ -30,7 +40,10 @@ const routes:Routes = [{
     TeamComponent,
     TeamListComponent,
     DonerComponent,
-    DonerListComponent
+    DonerListComponent,
+    BoardMemberComponent,
+    BoardMemberListComponent,
+    EventsComponent
   ],
   imports: [
     CommonModule,
