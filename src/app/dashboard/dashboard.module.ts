@@ -15,7 +15,17 @@ import { DonerComponent } from './component/doner/doner.component';
 import { DonerListComponent } from './component/doner-list/doner-list.component';
 import { BoardMemberComponent } from './component/board-member/board-member.component';
 import { BoardMemberListComponent } from './component/board-member-list/board-member-list.component';
-import { EventsComponent } from './component/events/events/events.component';
+import { EventsComponent } from './component/events/events.component';
+import { ReportComponent } from './Report/report/report.component';
+import { WorksComponent } from './component/work/works/works.component';
+import { EducationalTrainingComponent } from './component/work/educational-training/educational-training.component';
+import { SocialWorkComponent } from './component/work/social-work/social-work.component';
+import { EmploymentWorkComponent } from './component/work/employment-work/employment-work.component';
+import { SocialCulturalWorkComponent } from './component/work/social-cultural-work/social-cultural-work.component';
+import { SkillDevlopmentComponent } from './component/work/skill-devlopment/skill-devlopment.component';
+import { SocialEventComponent } from './component/events/social-events/social-event.component';
+import { EducationalEventComponent } from './component/events/educational/educational-event/educational-event.component';
+
 
 const routes:Routes = [{
   path:'',component:DashboardWarapperComponent,children:[
@@ -25,6 +35,20 @@ const routes:Routes = [{
     {path:'volounteer-list',component:VolounteerListComponent},
     {path:'team',component:TeamComponent},
     {path:'team-list',component:TeamListComponent},
+    {path:'board',component:BoardMemberComponent},
+    {path:'board-member-list',component:BoardMemberListComponent},
+    {path:'report',component:ReportComponent},
+    {path:'events',component:EventsComponent,children:[
+      {path:'educational-event',component:EducationalEventComponent},
+      {path:'social-events',component:SocialEventComponent},
+    ]},
+    {path:'work',component:EventsComponent,children:[
+      {path:'education-training',component:EducationalTrainingComponent},
+      {path:'employment',component:EmploymentWorkComponent},
+      {path:'social-work',component:SocialWorkComponent},
+      {path:'skill',component:SkillDevlopmentComponent},
+      {path:'social-cultural',component:SocialCulturalWorkComponent},
+    ]}
   ]
 }]
 
@@ -43,7 +67,16 @@ const routes:Routes = [{
     DonerListComponent,
     BoardMemberComponent,
     BoardMemberListComponent,
-    EventsComponent
+    EventsComponent,
+    ReportComponent,
+    WorksComponent,
+    EducationalTrainingComponent,
+    SocialWorkComponent,
+    EmploymentWorkComponent,
+    SocialCulturalWorkComponent,
+    SkillDevlopmentComponent,
+    SocialEventComponent,
+    EducationalEventComponent
   ],
   imports: [
     CommonModule,
