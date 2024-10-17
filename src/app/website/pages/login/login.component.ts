@@ -24,11 +24,10 @@ password:any = '123456789'
       const obj = this.loginForm.getRawValue()
       if(obj.email === this.email && obj.password === this.password){
         this.router.navigateByUrl('/dashboard')
-        this.toastr.success('Hello world!', 'Toastr fun!');
+        this.toastr.success('Welcome! janseva Foundation Dashboard');
       }else{
         this.toastr.error("Inavlid Email Id & password")
       }
-    
     }else{
       
     }
