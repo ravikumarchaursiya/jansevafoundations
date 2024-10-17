@@ -1,8 +1,8 @@
 <nav class="navbar-vertical navbar">
     <div class="vh-100" data-simplebar>
         <!-- Brand logo -->
-        <a class="navbar-brand" href="../../../index.html">
-            <img src="../../../assets/images/brand/logo/logo-inverse.svg" alt="Training Portal" />
+        <a class="navbar-brand" [routerLink]="['/dashboard']">
+            <img src="../../../assets/assets/images/education/course.png" alt="SahyogFoundation"  style="color: white;"/>
         </a>
         <!-- Navbar nav -->
         <ul class="navbar-nav flex-column" id="sideNavbar">
@@ -20,11 +20,11 @@
                 <div id="navDashboard" class="collapse " data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link " href="../admin-dashboard.html">Overview</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Report1</a>
                         </li>
                         <!-- Nav item -->
                         <li class="nav-item">
-                            <a class="nav-link " href="../dashboard-analytics.html">Analytics</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Report2</a>
                         </li>
                     </ul>
                 </div>
@@ -38,18 +38,15 @@
                     aria-expanded="false"
                     aria-controls="navCourses">
                     <i class="nav-icon fe fe-book me-2"></i>
-                    Courses
+                    Member's
                 </a>
                 <div id="navCourses" class="collapse " data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link " href="../admin-course-overview.html">All Courses</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Board Members</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../admin-course-category.html">Courses Category</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../admin-course-category-single.html">Category Single</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Team Member</a>
                         </li>
                     </ul>
                 </div>
@@ -58,15 +55,15 @@
             <li class="nav-item">
                 <a class="nav-link  collapsed " href="#" data-bs-toggle="collapse" data-bs-target="#navProfile" aria-expanded="false" aria-controls="navProfile">
                     <i class="nav-icon fe fe-user me-2"></i>
-                    User
+                    Volounteer
                 </a>
                 <div id="navProfile" class="collapse " data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link " href="../admin-instructor.html">Instructor</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Add Volounteer</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../admin-students.html">Students</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Volounteer List</a>
                         </li>
                     </ul>
                 </div>
@@ -76,21 +73,15 @@
             <li class="nav-item">
                 <a class="nav-link  collapsed " href="#" data-bs-toggle="collapse" data-bs-target="#navCMS" aria-expanded="false" aria-controls="navCMS">
                     <i class="nav-icon fe fe-book-open me-2"></i>
-                    CMS
+                    Doner's
                 </a>
                 <div id="navCMS" class="collapse " data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link " href="../admin-cms-overview.html">Overview</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Add Doner</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../admin-cms-post.html">All Post</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../admin-cms-post-new.html">New Post</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../admin-cms-post-category.html">Category</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Doner List</a>
                         </li>
                     </ul>
                 </div>
@@ -105,15 +96,30 @@
                     aria-expanded="false"
                     aria-controls="navProject">
                     <i class="nav-icon fe fe-file me-2"></i>
-                    Project
+                    Events
                 </a>
                 <div id="navProject" class="collapse " data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link " href="../project-grid.html">Grid</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../project-list.html">List</a>
+                            <a
+                                class="nav-link  collapsed "
+                                href="#"
+                                data-bs-toggle="collapse"
+                                data-bs-target="#navprojectSingle"
+                                aria-expanded="false"
+                                aria-controls="navprojectSingle">
+                                Social Events
+                            </a>
+                            <div id="navprojectSingle" class="collapse " data-bs-parent="#navProject">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a class="nav-link " [routerLink]="['/dashboard']">Social Events1</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link " [routerLink]="['/dashboard']">Social Events2</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li class="nav-item">
                             <a
@@ -123,34 +129,21 @@
                                 data-bs-target="#navprojectSingle"
                                 aria-expanded="false"
                                 aria-controls="navprojectSingle">
-                                Single
+                               Educational Events
                             </a>
                             <div id="navprojectSingle" class="collapse " data-bs-parent="#navProject">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link " href="../project-overview.html">Overview</a>
+                                        <a class="nav-link " [routerLink]="['/dashboard']"> Educational Events1</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link " href="../project-task.html">Task</a>
+                                        <a class="nav-link " [routerLink]="['/dashboard']"> Educational Events2</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../project-budget.html">Budget</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../project-team.html">Team</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../project-files.html">Files</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="../project-summary.html">Summary</a>
-                                    </li>
+                                   
                                 </ul>
                             </div>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../add-project.html">Create Project</a>
-                        </li>
+                        
                     </ul>
                 </div>
             </li>
@@ -164,30 +157,30 @@
                     aria-expanded="false"
                     aria-controls="navAuthentication">
                     <i class="nav-icon fe fe-lock me-2"></i>
-                    Authentication
+                    Work
                 </a>
                 <div id="navAuthentication" class="collapse " data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link " href="../../sign-in.html">Sign In</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Educational & Training</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../../sign-up.html">Sign Up</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Social</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../../forget-password.html">Forget Password</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Employment</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../notification-history.html">Notifications</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Social & Cultural</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../../404-error.html">404 Error</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Skill Devlopment</a>
                         </li>
                     </ul>
                 </div>
             </li>
             <!-- Nav item -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a
                     class="nav-link  collapsed "
                     href="#"
@@ -213,59 +206,59 @@
                             <div id="navproduct" class="collapse " data-bs-parent="#navProduct">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link " href="../ecommerce/product-grid.html">Grid</a>
+                                        <a class="nav-link " [routerLink]="['/dashboard']">Grid</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link " href="../ecommerce/product-grid-with-sidebar.html">
+                                        <a class="nav-link " [routerLink]="['/dashboard']">
                                             Grid Sidebar
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link " href="../ecommerce/products.html">Products</a>
+                                        <a class="nav-link " [routerLink]="['/dashboard']">Products</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link " href="../ecommerce/product-single.html">Product Single</a>
+                                        <a class="nav-link " [routerLink]="['/dashboard']">Product Single</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link " href="../ecommerce/product-single-v2.html">Product Single v2</a>
+                                        <a class="nav-link " [routerLink]="['/dashboard']">Product Single v2</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link " href="../ecommerce/add-product.html">Add Product</a>
+                                        <a class="nav-link " [routerLink]="['/dashboard']">Add Product</a>
                                     </li>
                                 </ul>
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../ecommerce/shopping-cart.html">Shopping Cart</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Shopping Cart</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../ecommerce/checkout.html">Checkout</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Checkout</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../ecommerce/order.html">Order</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Order</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../ecommerce/order-single.html">Order Single</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Order Single</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../ecommerce/order-history.html">Order History</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Order History</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../ecommerce/order-summary.html">Order Summary</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Order Summary</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link " href="../ecommerce/customers.html">Customers</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Customers</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../ecommerce/customer-single.html">Customer Single</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Customer Single</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="../ecommerce/add-customer.html">Add Customer</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Add Customer</a>
                         </li>
                     </ul>
                 </div>
-            </li>
+            </li> -->
             <!-- Nav item -->
             <li class="nav-item">
                 <a
@@ -281,14 +274,14 @@
                 <div id="navlayouts" class="collapse " data-bs-parent="#sideNavbar">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link " href="layout-horizontal.html">Top</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Top</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link " href="layout-compact.html">Compact</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Compact</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="layout-vertical.html">Vertical</a>
+                            <a class="nav-link " [routerLink]="['/dashboard']">Vertical</a>
                         </li>
                     </ul>
                 </div>
@@ -299,18 +292,18 @@
             </li>
             <!-- Nav item -->
             <li class="nav-item">
-                <div class="navbar-heading">Apps</div>
+                <div class="navbar-heading" style="color: white;">Apps</div>
             </li>
             <!-- Nav item -->
             <li class="nav-item">
-                <a class="nav-link " href="../chat-app.html">
+                <a class="nav-link " [routerLink]="['/dashboard']">
                     <i class="nav-icon fe fe-message-square me-2"></i>
                     Chat
                 </a>
             </li>
             <!-- Nav item -->
             <li class="nav-item">
-                <a class="nav-link " href="../task-kanban.html">
+                <a class="nav-link " [routerLink]="['/dashboard']">
                     <span>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -333,7 +326,7 @@
             </li>
             <!-- Nav item -->
             <li class="nav-item">
-                <a class="nav-link " href="../mail.html">
+                <a class="nav-link "[routerLink]="['/dashboard']">
                     <span>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -355,7 +348,7 @@
             </li>
             <!-- Nav item -->
             <li class="nav-item">
-                <a class="nav-link " href="../calendar.html">
+                <a class="nav-link " [routerLink]="['/dashboard']">
                     <span>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -382,165 +375,34 @@
             </li>
             <!-- Nav item -->
             <li class="nav-item">
-                <div class="navbar-heading">Components</div>
+                <div class="navbar-heading" style="color: white;">Components</div>
             </li>
             <!-- Nav item -->
-            <li class="nav-item">
-                <a class="nav-link  collapsed " href="#" data-bs-toggle="collapse" data-bs-target="#navTables" aria-expanded="false" aria-controls="navTables">
-                    <i class="nav-icon fe fe-database me-2"></i>
-                    Tables
-                </a>
-                <div id="navTables" class="collapse " data-bs-parent="#sideNavbar">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link " href="../basic-table.html">Basic</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../datatables.html">Data Tables</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+           
             <!-- Nav item -->
             <!-- Nav item -->
-            <li class="nav-item">
-                <a class="nav-link " href="../../help-center.html">
-                    <i class="nav-icon fe fe-help-circle me-2"></i>
-                    Help Center
-                </a>
-            </li>
+            
             <!-- Nav item -->
-            <li class="nav-item">
-                <a
-                    class="nav-link  collapsed "
-                    href="#"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navSiteSetting"
-                    aria-expanded="false"
-                    aria-controls="navSiteSetting">
-                    <i class="nav-icon fe fe-settings me-2"></i>
-                    Site Setting
-                </a>
-                <div id="navSiteSetting" class="collapse " data-bs-parent="#sideNavbar">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link " href="../setting-general.html">General</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../setting-google.html">Google</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../setting-social.html">Social</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../setting-social-login.html">Social Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../setting-payment.html">Payment</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="../setting-smpt.html">SMPT</a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+           
             <!-- Nav item -->
-            <li class="nav-item">
-                <a
-                    class="nav-link  collapsed "
-                    href="#"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navMenuLevel"
-                    aria-expanded="false"
-                    aria-controls="navMenuLevel">
-                    <i class="nav-icon fe fe-corner-left-down me-2"></i>
-                    Menu Level
-                </a>
-                <div id="navMenuLevel" class="collapse " data-bs-parent="#sideNavbar">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a
-                                class="nav-link "
-                                href="#"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#navMenuLevelSecond"
-                                aria-expanded="false"
-                                aria-controls="navMenuLevelSecond">
-                                Two Level
-                            </a>
-                            <div id="navMenuLevelSecond" class="collapse" data-bs-parent="#navMenuLevel">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="#">NavItem 1</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="#">NavItem 2</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link  collapsed "
-                                href="#"
-                                data-bs-toggle="collapse"
-                                data-bs-target="#navMenuLevelThree"
-                                aria-expanded="false"
-                                aria-controls="navMenuLevelThree">
-                                Three Level
-                            </a>
-                            <div id="navMenuLevelThree" class="collapse " data-bs-parent="#navMenuLevel">
-                                <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a
-                                            class="nav-link  collapsed "
-                                            href="#"
-                                            data-bs-toggle="collapse"
-                                            data-bs-target="#navMenuLevelThreeOne"
-                                            aria-expanded="false"
-                                            aria-controls="navMenuLevelThreeOne">
-                                            NavItem 1
-                                        </a>
-                                        <div id="navMenuLevelThreeOne" class="collapse collapse " data-bs-parent="#navMenuLevelThree">
-                                            <ul class="nav flex-column">
-                                                <li class="nav-item">
-                                                    <a class="nav-link " href="#">NavChild Item 1</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " href="#">Nav Item 2</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </li>
+      
             <!-- Nav item -->
             <li class="nav-item">
                 <div class="nav-divider"></div>
             </li>
             <!-- Nav item -->
             <li class="nav-item">
-                <div class="navbar-heading">Documentation</div>
+                <div class="navbar-heading" style="color: white;">Documentation</div>
             </li>
             <!-- Nav item -->
             <li class="nav-item">
-                <a class="nav-link" href="../../../docs/index.html">
+                <a class="nav-link" [routerLink]="['/dashboard']">
                     <i class="nav-icon fe fe-clipboard me-2"></i>
                     Documentation
                 </a>
             </li>
             <!-- Nav item -->
-            <li class="nav-item">
-                <a class="nav-link" href="../../../docs/changelog.html">
-                    <i class="nav-icon fe fe-git-pull-request me-2"></i>
-                    Changelog
-                    <span class="text-primary ms-1" id="changelog"></span>
-                </a>
-            </li>
+           
         </ul>
        
     </div>
