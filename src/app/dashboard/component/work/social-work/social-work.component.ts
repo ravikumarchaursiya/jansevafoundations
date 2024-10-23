@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-social-work',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SocialWorkComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit(): void {
+  socialWorkForm: FormGroup;
+  membersList: any[] = [];
+ id:any
+  constructor(private fb: FormBuilder) {
+    this.socialWorkForm = this.fb.group({
+      name: ['', Validators.required],
+      position: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', Validators.required]
+    });
   }
-
+ngOnInit(): void {
+    
+}
+  onSubmit() {
+    if (this.socialWorkForm.valid) {
+      this.membersList.push(this.socialWorkForm.value);
+      this.socialWorkForm.reset();
+    }
+  }
 }

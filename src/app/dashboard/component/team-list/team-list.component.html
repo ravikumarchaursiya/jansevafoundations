@@ -5,11 +5,40 @@
           <!-- Basic Card Example -->
           <div class="card shadow mb-4">
             <div class="card-header d-flex justify-content-between bg-gradient-primary">
-              <h3 class="h3 mb-0 text-white-900" style="width: 300px;color:white"></h3>
-                <button class="btn btn-primary bd-0 ml-auto" [routerLink]="['/dashboard/faculity']">Add New</button>
+              <h3 class="mb-0 text-white-800" style="width: 300px;color:white">Team Member List</h3>
+                    <ng-container >
+                        <button class="btn btn-outline-white bd-0 ml-auto"  [routerLink]="['/dashboard/team']">Add Team</button>
+                    </ng-container>
             </div>
             <div class="card-body">
-             
+              <mat-table [dataSource]="teamList" class="mat-elevation-z8">
+                <!-- Name Column -->
+                <ng-container matColumnDef="name">
+                  <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                  <mat-cell *matCellDef="let member"> {{member.name}} </mat-cell>
+                </ng-container>
+              
+                <!-- Position Column -->
+                <ng-container matColumnDef="position">
+                  <mat-header-cell *matHeaderCellDef> Position </mat-header-cell>
+                  <mat-cell *matCellDef="let member"> {{member.position}} </mat-cell>
+                </ng-container>
+              
+                <!-- Email Column -->
+                <ng-container matColumnDef="email">
+                  <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
+                  <mat-cell *matCellDef="let member"> {{member.email}} </mat-cell>
+                </ng-container>
+              
+                <!-- Phone Column -->
+                <ng-container matColumnDef="phone">
+                  <mat-header-cell *matHeaderCellDef> Phone </mat-header-cell>
+                  <mat-cell *matCellDef="let member"> {{member.phone}} </mat-cell>
+                </ng-container>
+              
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+              </mat-table>
               
             </div>
         </div>

@@ -5,14 +5,72 @@
           <!-- Basic Card Example -->
           <div class="card shadow mb-4">
             <div class="card-header d-flex justify-content-between bg-gradient-primary">
-              <h3 class="h3 mb-0 text-white-900" style="width: 300px;color:white"></h3>
-                <button class="btn btn-primary bd-0 ml-auto" [routerLink]="['/dashboard/faculity']">Add New</button>
+              <h3 class="h3 mb-0 text-white-900" style="width: 300px;color:white">Add Educational Events</h3>
             </div>
             <div class="card-body">
-             
-              
+           
+              <form [formGroup]="boardMemberForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="form-group col-md-3">
+                    <mat-form-field appearance="fill" class="custom-field-width">
+                      <mat-label>Name</mat-label>
+                      <input matInput formControlName="name" placeholder="Board Member Name">
+                      <mat-error *ngIf="boardMemberForm.controls['name'].invalid && boardMemberForm.controls['name'].touched">
+                        Name is required
+                      </mat-error>
+                    </mat-form-field>
+                    </div>
+                  <div class="form-group col-md-3">
+                <mat-form-field appearance="fill"class="custom-field-width">
+                  <mat-label>Position</mat-label>
+                  <input matInput formControlName="position" placeholder="Board Member Position">
+                  <mat-error *ngIf="boardMemberForm.controls['position'].invalid && boardMemberForm.controls['position'].touched">
+                    Position is required
+                  </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-group col-md-3">
+                <mat-form-field appearance="fill"class="custom-field-width">
+                  <mat-label>Email</mat-label>
+                  <input matInput formControlName="email" placeholder="Email">
+                  <mat-error *ngIf="boardMemberForm.controls['email'].invalid && boardMemberForm.controls['email'].touched">
+                    Please enter a valid email
+                  </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-group col-md-3">
+                <mat-form-field appearance="fill"class="custom-field-width">
+                  <mat-label>Phone</mat-label>
+                  <input matInput formControlName="phone" placeholder="Phone Number">
+                  <mat-error *ngIf="boardMemberForm.controls['phone'].invalid && boardMemberForm.controls['phone'].touched">
+                    Phone number is required
+                  </mat-error>
+                </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12 flex-end">
+              <!-- <button mat-flat-button type="submit" color="warn"></button> -->
+              <button mat-flat-button type="submit" color="primary">{{id?'Update':'Submit'}}</button>
+            </div>
+          </div>
+              </form>
             </div>
         </div>
       </div>
   </div>
 </section>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
