@@ -1,5 +1,7 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-team',
@@ -8,11 +10,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class TeamComponent implements OnInit {
 
-  boardMemberForm: FormGroup;
+  teamMember: FormGroup;
   membersList: any[] = [];
  id:any
-  constructor(private fb: FormBuilder) {
-    this.boardMemberForm = this.fb.group({
+ isEditable:boolean = false
+  constructor(private fb: FormBuilder,private toast:ToastrService,private location : Location) {
+    this.teamMember = this.fb.group({
       name: ['', Validators.required],
       position: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -23,10 +26,18 @@ ngOnInit(): void {
     
 }
   onSubmit() {
-    if (this.boardMemberForm.valid) {
-      this.membersList.push(this.boardMemberForm.value);
-      this.boardMemberForm.reset();
+    if (this.teamMember.valid) {
+      this.membersList.push(this.teamMember.value);
+      this.toast.success("Team Added Successfully")
+      // this.teamMember.reset();
     }
+  }
+
+  editForm(){
+    this.isEditable = true
+  }
+  back(){
+    this.location.back()
   }
 
 }

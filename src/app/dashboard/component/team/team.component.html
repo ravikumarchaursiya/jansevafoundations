@@ -9,13 +9,13 @@
             </div>
             <div class="card-body">
            
-              <form [formGroup]="boardMemberForm" (ngSubmit)="onSubmit()">
+              <form [formGroup]="teamMember" (ngSubmit)="onSubmit()">
                 <div class="row">
                   <div class="form-group col-md-3">
                     <mat-form-field appearance="fill" class="custom-field-width">
                       <mat-label>Name</mat-label>
                       <input matInput formControlName="name" placeholder="Board Member Name">
-                      <mat-error *ngIf="boardMemberForm.controls['name'].invalid && boardMemberForm.controls['name'].touched">
+                      <mat-error *ngIf="teamMember.controls['name'].invalid && teamMember.controls['name'].touched">
                         Name is required
                       </mat-error>
                     </mat-form-field>
@@ -24,7 +24,7 @@
                 <mat-form-field appearance="fill"class="custom-field-width">
                   <mat-label>Position</mat-label>
                   <input matInput formControlName="position" placeholder="Board Member Position">
-                  <mat-error *ngIf="boardMemberForm.controls['position'].invalid && boardMemberForm.controls['position'].touched">
+                  <mat-error *ngIf="teamMember.controls['position'].invalid && teamMember.controls['position'].touched">
                     Position is required
                   </mat-error>
                 </mat-form-field>
@@ -33,7 +33,7 @@
                 <mat-form-field appearance="fill"class="custom-field-width">
                   <mat-label>Email</mat-label>
                   <input matInput formControlName="email" placeholder="Email">
-                  <mat-error *ngIf="boardMemberForm.controls['email'].invalid && boardMemberForm.controls['email'].touched">
+                  <mat-error *ngIf="teamMember.controls['email'].invalid && teamMember.controls['email'].touched">
                     Please enter a valid email
                   </mat-error>
                 </mat-form-field>
@@ -42,7 +42,7 @@
                 <mat-form-field appearance="fill"class="custom-field-width">
                   <mat-label>Phone</mat-label>
                   <input matInput formControlName="phone" placeholder="Phone Number">
-                  <mat-error *ngIf="boardMemberForm.controls['phone'].invalid && boardMemberForm.controls['phone'].touched">
+                  <mat-error *ngIf="teamMember.controls['phone'].invalid && teamMember.controls['phone'].touched">
                     Phone number is required
                   </mat-error>
                 </mat-form-field>
@@ -50,9 +50,15 @@
           </div>
           <div class="row">
             <div class="form-group col-md-12 flex-end">
-              <!-- <button mat-flat-button type="submit" color="warn"></button> -->
-              <button mat-flat-button type="submit" color="primary">{{id?'Update':'Submit'}}</button>
-            </div>
+              <button *ngIf="id && !isEditable" mat-flat-button color="primary" type="button" (click)="editForm()">Edit</button>
+              <button mat-flat-button type="reset" color="warn" *ngIf="!id">Reset</button>
+              <button mat-flat-button type="submit" color="primary"*ngIf="!id && !isEditable">Save</button>
+              <button mat-flat-button type="button" color="warn" (click)="back()"*ngIf="isEditable">Cancel</button>
+              <button mat-flat-button type="submit" color="primary"*ngIf="id&&isEditable">Update</button>
+          </div>
+           <div class="flex-start" style="position: absolute;"> 
+            <button mat-flat-button type="button" color="primary" (click)="back()"*ngIf="!isEditable&&!id">Back</button>
+           </div>
           </div>
               </form>
             </div>

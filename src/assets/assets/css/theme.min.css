@@ -19598,7 +19598,7 @@ fieldset:disabled .btn {
   display: block;
   height: 100vh;
   margin-left: -17rem;
-  max-width: 250px;
+  max-width: 250px !important;
   padding: 0;
   position: fixed;
   top: 0;
