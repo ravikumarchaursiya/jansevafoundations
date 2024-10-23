@@ -1,3 +1,4 @@
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -11,7 +12,8 @@ export class SocialWorkComponent implements OnInit {
   socialWorkForm: FormGroup;
   membersList: any[] = [];
  id:any
-  constructor(private fb: FormBuilder) {
+ isEditable:boolean = false
+  constructor(private fb: FormBuilder,private location:Location) {
     this.socialWorkForm = this.fb.group({
       name: ['', Validators.required],
       position: ['', Validators.required],
@@ -27,5 +29,11 @@ ngOnInit(): void {
       this.membersList.push(this.socialWorkForm.value);
       this.socialWorkForm.reset();
     }
+  }
+  editForm(){
+    this.isEditable = true
+  }
+  back(){
+    this.location.back()
   }
 }

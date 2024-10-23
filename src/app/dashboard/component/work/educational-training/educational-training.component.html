@@ -50,9 +50,15 @@
           </div>
           <div class="row">
             <div class="form-group col-md-12 flex-end">
-              <!-- <button mat-flat-button type="submit" color="warn"></button> -->
-              <button mat-flat-button type="submit" color="primary">{{id?'Update':'Submit'}}</button>
-            </div>
+              <button *ngIf="id && !isEditable" mat-flat-button color="primary" type="button" (click)="editForm()">Edit</button>
+              <button mat-flat-button type="reset" color="warn" *ngIf="!id">Reset</button>
+              <button mat-flat-button type="submit" color="primary"*ngIf="!id && !isEditable">Save</button>
+              <button mat-flat-button type="button" color="warn" (click)="back()"*ngIf="isEditable">Cancel</button>
+              <button mat-flat-button type="submit" color="primary"*ngIf="id&&isEditable">Update</button>
+          </div>
+           <div class="flex-start" style="position: absolute;"> 
+            <button mat-flat-button type="button" color="primary" (click)="back()"*ngIf="!isEditable&&!id">Back</button>
+           </div>
           </div>
               </form>
             </div>
