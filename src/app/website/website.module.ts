@@ -18,6 +18,7 @@ import { LightboxComponent } from './footer/lightbox/lightbox.component';
 
 
 
+
 const routes: Routes = [
   {
     path: '', component: WebsiteComponent, children: [
@@ -39,7 +40,8 @@ const routes: Routes = [
       { path: 'donate', loadChildren:()=> import('./pages/donate/donate.module').then (m=> m.DonateModule)},
       { path: 'volunteer', loadChildren:()=> import('./pages/volunteers/volunteers.module').then (m=> m.VolunteersModule)},
       { path: 'events', loadChildren:()=> import('./pages/events/events.module').then (m=> m.EventsModule)},
-      { path: 'blog', loadChildren:()=> import('./pages/blog/blog.module').then (m=> m.BlogModule)}
+      { path: 'blog', loadChildren:()=> import('./pages/blog/blog.module').then (m=> m.BlogModule)},
+      { path: 'forget', loadChildren:()=> import('./pages/forget-password/forget-password.module').then (m=> m.ForgetPasswordModule)}
     ]
   }
 ];
