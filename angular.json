@@ -41,7 +41,8 @@
               "src/assets/css/slicknav.min.css",
               "src/assets/css/main.css",
               "src/assets/css/responsive.css",
-              "node_modules/ngx-toastr/toastr.css" 
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/aos/dist/aos.css" 
             ],
           
             "scripts": [
@@ -52,7 +53,8 @@
               "src/assets/js/lightbox.min.js",
               "src/assets/js/jquery.scrollUp.min.js",
               "src/assets/js/slicknav.min.js",
-              "src/assets/js/main.js"
+              "src/assets/js/main.js",
+               "node_modules/aos/dist/aos.js"
             ]
           },
           "configurations": {

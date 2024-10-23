@@ -1,49 +1,76 @@
-<h1 class="text-center pt-4"></h1>
 
-<div class="container table-responsive py-5"> 
-<table class="table table-bordered table-hover">
-  <thead class="thead-dark">
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-     <tr>
-      <th scope="row">4</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-    <tr>
-      <th scope="row">5</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-<p class="text-center">Bootstrap 4 responsive table without css and anyother things. Enjoy ... </p>
-<p class="text-center">Don't forget to star, contribute & follow on <a href="https://github.com/Md-Asaduzzaman-Muhid" target="_blank" class="hover-1">Github</a></p>
+<section class="container-fluid p-4">
+  <div class="row">
+      <div class="col-xl-12 col-lg-12 col-md-12 col-12">
+          <!-- Basic Card Example -->
+          <div class="card shadow mb-4">
+            <div class="card-header d-flex justify-content-between bg-gradient-primary">
+              <h3 class="h3 mb-0 text-white-900" style="width: 300px;color:white">Add Board Member</h3>
+            </div>
+            <div class="card-body">
+           
+              <form [formGroup]="boardMemberForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                  <div class="form-group col-md-3">
+                    <mat-form-field appearance="fill" class="custom-field-width">
+                      <mat-label>Name</mat-label>
+                      <input matInput formControlName="name" placeholder="Board Member Name">
+                      <mat-error *ngIf="boardMemberForm.controls['name'].invalid && boardMemberForm.controls['name'].touched">
+                        Name is required
+                      </mat-error>
+                    </mat-form-field>
+                    </div>
+                  <div class="form-group col-md-3">
+                <mat-form-field appearance="fill"class="custom-field-width">
+                  <mat-label>Position</mat-label>
+                  <input matInput formControlName="position" placeholder="Board Member Position">
+                  <mat-error *ngIf="boardMemberForm.controls['position'].invalid && boardMemberForm.controls['position'].touched">
+                    Position is required
+                  </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-group col-md-3">
+                <mat-form-field appearance="fill"class="custom-field-width">
+                  <mat-label>Email</mat-label>
+                  <input matInput formControlName="email" placeholder="Email">
+                  <mat-error *ngIf="boardMemberForm.controls['email'].invalid && boardMemberForm.controls['email'].touched">
+                    Please enter a valid email
+                  </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-group col-md-3">
+                <mat-form-field appearance="fill"class="custom-field-width">
+                  <mat-label>Phone</mat-label>
+                  <input matInput formControlName="phone" placeholder="Phone Number">
+                  <mat-error *ngIf="boardMemberForm.controls['phone'].invalid && boardMemberForm.controls['phone'].touched">
+                    Phone number is required
+                  </mat-error>
+                </mat-form-field>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12 flex-end">
+              <!-- <button mat-flat-button type="submit" color="warn"></button> -->
+              <button mat-flat-button type="submit" color="primary">{{id?'Update':'Submit'}}</button>
+            </div>
+          </div>
+              </form>
+            </div>
+        </div>
+      </div>
+  </div>
+</section>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
