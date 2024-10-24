@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthService } from './auth/auth.service';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { InterceptorService } from './auth/interceptor.service';
 
 @NgModule({
@@ -21,7 +21,7 @@ import { InterceptorService } from './auth/interceptor.service';
       positionClass: 'toast-top-right',
       preventDuplicates: true,
     }),
-
+   HttpClientModule
   ],
   
   providers: [

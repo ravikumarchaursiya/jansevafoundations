@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 export class UtilityService {
   host= environment.config.apiUrl
   tokenData;
-    constructor(private router: Router,private fb: FormBuilder,
+    constructor(private router: Router,
       private route:ActivatedRoute,private location: Location, private http:HttpClient ) { 
         this.setTokenData()
     }
