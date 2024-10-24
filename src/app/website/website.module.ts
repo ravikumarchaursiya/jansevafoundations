@@ -13,6 +13,7 @@ import { CopyRightComponent } from './footer/copy-right/copy-right.component';
 import { SocialIconComponent } from './footer/social-icon/social-icon.component';
 import { SharedModule } from './shared/shared.module';
 import { LightboxComponent } from './footer/lightbox/lightbox.component';
+import { WebsiteService } from './Services/website.service';
 
 
 
@@ -64,7 +65,7 @@ const routes: Routes = [
     SharedModule
     
   ],
-  providers:[],
+  providers:[WebsiteService],
  
   exports:[],
   schemas:[CUSTOM_ELEMENTS_SCHEMA],

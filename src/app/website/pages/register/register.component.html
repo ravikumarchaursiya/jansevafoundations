@@ -26,10 +26,10 @@
         <!-- Email Input -->
         <mat-form-field class="full-width" appearance="fill">
           <mat-label>Email</mat-label>
-          <input matInput type="email" id="email" formControlName="email" placeholder="Enter your email" />
-          <mat-error *ngIf="f['email'].invalid && (f['email'].dirty || f['email'].touched)">
-            <small *ngIf="f['email'].errors?.['required']">Email is required</small>
-            <small *ngIf="f['email'].errors?.['email']">Enter a valid email address</small>
+          <input matInput type="email" id="email" formControlName="emailAddress" placeholder="Enter your email" />
+          <mat-error *ngIf="f['emailAddress'].invalid && (f['emailAddress'].dirty || f['emailAddress'].touched)">
+            <small *ngIf="f['emailAddress'].errors?.['required']">Email is required</small>
+            <small *ngIf="f['emailAddress'].errors?.['emailAddress']">Enter a valid email address</small>
           </mat-error>
         </mat-form-field>
 
