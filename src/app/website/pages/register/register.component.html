@@ -32,6 +32,13 @@
             <small *ngIf="f['emailAddress'].errors?.['emailAddress']">Enter a valid email address</small>
           </mat-error>
         </mat-form-field>
+        <mat-form-field class="full-width" appearance="fill">
+          <mat-label>Mobile No</mat-label>
+          <input matInput type="email" id="email" formControlName="MobileNumber" placeholder="Enter your email" />
+          <mat-error *ngIf="f['MobileNumber'].invalid && (f['MobileNumber'].dirty || f['emailAddress'].touched)">
+            <small *ngIf="f['MobileNumber'].errors?.['required']">Mobile Number is required</small>
+          </mat-error>
+        </mat-form-field>
 
         <!-- Password Input -->
         <mat-form-field class="full-width" appearance="fill">
