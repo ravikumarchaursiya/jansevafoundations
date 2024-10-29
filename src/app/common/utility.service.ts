@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class UtilityService {
-  host= environment.config.apiUrl
+ 
   tokenData;
     constructor(private router: Router,
       private route:ActivatedRoute,private location: Location, private http:HttpClient ) { 
