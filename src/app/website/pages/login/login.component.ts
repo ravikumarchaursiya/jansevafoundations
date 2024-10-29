@@ -23,21 +23,29 @@ role:any
       password: ['', Validators.required]
     });
   }
-  onSubmit(){
-    if(this.loginForm.valid){
-      const obj = this.loginForm.getRawValue()
-      this.authService.login(this.baseUrl,obj).subscribe(res=>{
-        if(res){
-          localStorage.setItem('token', res.token);
-          this.authService.loginWithToken(res.token);
-          this.utility.setTokenData();
-          this.role = this.utility.getUsreNameRole()
-          this.router.navigateByUrl('/dashboard')
-          this.toastr.success('Welcome! janseva Foundation Dashboard');
+  onSubmit() {
+    if (this.loginForm.valid) {
+      const obj = this.loginForm.getRawValue();
+      this.authService.login(this.baseUrl, obj).subscribe({
+        next: (res) => {
+          if (res) {
+            localStorage.setItem('token', res?.token);
+            this.authService.loginWithToken(res?.token);
+            this.utility.setTokenData();
+            this.role = this.utility.getUsreNameRole();
+            this.router.navigateByUrl('/dashboard');
+            this.toastr.success('Welcome! Janseva Foundation Dashboard');
+          }
+        },
+        error: (err) => {
+          if (err?.status === 401) {
+            this.toastr.error(err?.error?.message);
+          }
         }
-      })
-    }else{
-      this.toastr.error("Inavlid Email Id & password")
+      });
+    } else {
+      this.toastr.error("Invalid Email ID & password");
     }
   }
+  
 }
