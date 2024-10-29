@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-dashboard-header',
@@ -11,7 +12,7 @@ export class DashboardHeaderComponent implements OnInit {
   userName:any
   role
   @Output() valueChange = new EventEmitter<boolean>();
-  constructor(){}
+  constructor(private auth:AuthService){}
   ngOnInit(): void {
      
   //   this.userName = this.utility.getUsreNameRole()
@@ -24,7 +25,7 @@ export class DashboardHeaderComponent implements OnInit {
   }
 
   logOut(){
-    // this.auth.logout()
+    this.auth.logout()
   }
 
 }
