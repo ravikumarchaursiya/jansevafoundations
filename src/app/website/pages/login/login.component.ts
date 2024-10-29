@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/auth/auth.service';
@@ -19,9 +19,9 @@ role:any
   ) { }
   ngOnInit(): void {
     this.loginForm = this.fb.group({
-      email:[],
-      password:[]
-    })
+      mobileNumber: ['', [Validators.required, Validators.maxLength(10)]],
+      password: ['', Validators.required]
+    });
   }
   onSubmit(){
     if(this.loginForm.valid){

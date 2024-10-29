@@ -15,7 +15,7 @@ export class RegisterComponent implements OnInit {
   baseUrl:any = '/UserRegistration/register'
   constructor(private fb: FormBuilder,private toastr:ToastrService,
     private registerService:WebsiteService,private router:Router) {
-    this.roles  = ['Donor', 'Volunteer', 'Admin', 'Member'];
+    this.roles  = ['Donor', 'Volunteer', 'User'];
   }
 
   ngOnInit(): void {
@@ -24,26 +24,33 @@ export class RegisterComponent implements OnInit {
       emailAddress: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       role: ['', Validators.required],
-      MobileNumber:[]
+      MobileNumber:['', Validators.required]
     });
   }
 
   onSubmit(): void {
     if (this.registerForm.valid) {
-       const data = this.registerForm.value
-      this.registerService.userRegisteration(this.baseUrl,data).subscribe(res=>{
-        if(res?.message){
-          this.toastr.success('You Have Register Successfully')
-          this.router.navigateByUrl('/login')
-        }else{
-          this.toastr.error(res?.message)
+      const data = this.registerForm.value;
+      this.registerService.userRegisteration(this.baseUrl, data).subscribe({
+        next: (res) => {
+          if (res?.message) {
+            this.toastr.success('You have registered successfully');
+            this.router.navigateByUrl('/login');
+          } 
+        },
+        error: (err) => {
+          if (err.status === 409) {
+            this.toastr.error(err?.error?.message);
+          } else {
+            this.toastr.error('An error occurred during registration. Please try again.');
+          }
         }
-      })
-      // Call your API to register the user
+      });
     } else {
-      this.toastr.error('Form is invalid')
+      this.toastr.error('Form is invalid');
     }
   }
+  
 
   // Utility function to access form controls
   get f() {

@@ -1,16 +1,51 @@
 <app-banner mainTitle="Login" bannertitle="login" description="login to help child"></app-banner>
+
 <div class="mar">
-  <div class="login-container ">
-    <form class="login-form " [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <div class="login-container">
+    <form class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <h1>Welcome Back</h1>
       <p>Please login to your account</p>
-      <div class="input-group">
-        <input type="text" id="username" name="username" placeholder="Username" required formControlName="email">
-      </div>
-      <div class="input-group">
-        <input type="password" id="password" name="password" placeholder="Password" required formControlName="password">
-      </div>
-      <button type="submit">Login</button>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Mobile Number</mat-label>
+        <input
+          matInput
+          type="text"
+          id="mobileNumber"
+          name="mobileNumber"
+          placeholder="Mobile Number"
+          formControlName="mobileNumber"
+          maxlength="10"
+        />
+        <mat-error *ngIf="loginForm.get('mobileNumber').invalid && loginForm.get('mobileNumber').touched">
+          <small *ngIf="loginForm.get('mobileNumber').hasError('maxlength')">
+            Mobile number cannot exceed 10 digits.
+          </small>
+          <small *ngIf="loginForm.get('mobileNumber').hasError('required')">
+            Mobile number is required.
+          </small>
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input
+          matInput
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          formControlName="password"
+          required
+        />
+        <mat-error *ngIf="loginForm.get('password').invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+          <small *ngIf="loginForm.get('password').errors?.['required']">Password is required</small>
+          <small *ngIf="loginForm.get('password').errors?.['minlength']">Password must be at least 6 characters long</small>
+        </mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Login</button>
+
       <div class="bottom-text">
         <p>Don't have an account? <a [routerLink]="['/register']">Sign Up</a></p>
         <p><a [routerLink]="['/forget']">Forgot password?</a></p>
