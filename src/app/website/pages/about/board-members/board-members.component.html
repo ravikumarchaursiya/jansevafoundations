@@ -3,86 +3,27 @@
 <app-sticky-bar></app-sticky-bar>
 
 <div class="team-boxed">
-  <div class="container" data-aos="zoom-in">
-   
+    <div class="container" data-aos="zoom-in">
       <div class="row people">
-          <div class="col-md-6 col-lg-4 item">
-              <div class="box teams"><img class="rounded-circle" src="../../../../../assets/board-members/abhijeetsrivastav.jpeg">
-                  <h3 class="name">Abhijeet Srivastav</h3>
-                  <p class="title">Board Members</p>
-                  <p class="description center" style="text-align: justify;">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p>
-                  <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-              </div>
+        <div class="col-md-6 col-lg-4 item" *ngFor="let member of boardMembers">
+          <div class="box teams">
+            <img class="rounded-circle" [src]="member.image" alt="{{ member.name }}">
+            <h3 class="name">{{ member.name }}</h3>
+            <p class="title">{{ member.position }}</p>
+            <p class="description center" style="text-align: justify;">
+              {{ member.isExpanded ? member.description : (member.description | slice: 0:100) + (member.description.length > 100 ? '...' : '') }}
+              <span *ngIf="member.description.length > 100">
+                <a href="#" (click)="toggleReadMore(member, $event)">{{ member.isExpanded ? 'Read less' : 'Read more' }}</a>
+              </span>
+            </p>
+            <div class="social">
+              <a href="#"><i class="fa fa-facebook-official"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+            </div>
           </div>
-          <div class="col-md-6 col-lg-4 item">
-              <div class="box teams"><img class="rounded-circle" src="../../../../../assets/board-members/amit-trivedi.jpeg">
-                  <h3 class="name">Amit Trivedi</h3>
-                  <p class="title">Board Members</p>
-                  <p class="description center" style="text-align: justify;">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p>
-                  <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-              </div>
-          </div>
-          <div class="col-md-6 col-lg-4 item">
-              <div class="box teams"><img class="rounded-circle" src="../../../../../assets/board-members/priyanka-chauhan.jpeg">
-                  <h3 class="name">Priyank Chauhan</h3>
-                  <p class="title">Board Members</p>
-                  <p class="description center" style="text-align: justify">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p>
-                  <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-              </div>
-          </div>
+        </div>
       </div>
-      <div class="row people">
-        <div class="col-md-6 col-lg-4 item ">
-            <div class="box teams"><img class="rounded-circle" src="../../../../../assets/board-members/ram-tripathi.jpeg">
-                <h3 class="name">Ram Tripathi</h3>
-                <p class="title">Board Members</p>
-                <p class="description center">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p>
-                <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 item">
-            <div class="box teams"><img class="rounded-circle" src="../../../../../assets/board-members/rama-upadhyaya.jpeg">
-                <h3 class="name">Himanshu Upadhaya</h3>
-                <p class="title">Board Members</p>
-                <p class="description center " >Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p>
-                <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 item">
-            <div class="box teams"><img class="rounded-circle" src="../../../../../assets/board-members/rashmi-dixit.jpeg">
-                <h3 class="name">Rashmi Dixit</h3>
-                <p class="title">Board Members</p>
-                <p class="description center">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p>
-                <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-            </div>
-        </div>
-    </div>
-    <div class="row people">
-        <div class="col-md-6 col-lg-4 item ">
-            <div class="box teams"><img class="rounded-circle" src="../../../../../assets/board-members/sanjali-tiwari.jpeg">
-                <h3 class="name">Sanjali Tiwari</h3>
-                <p class="title">Board Members</p>
-                <p class="description center">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p>
-                <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 item">
-            <div class="box teams"><img class="rounded-circle" src="../../../../../assets/board-members/sudhanshu katiyar.jpeg">
-                <h3 class="name">Sudhanshu Katiyar</h3>
-                <p class="title">Board Members</p>
-                <p class="description center" >Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p>
-                <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 item">
-            <div class="box teams"><img class="rounded-circle" src="../../../../../assets/board-members/tarun-kumar-pandey.jpeg">
-                <h3 class="name">Tarun Kumar Pandey</h3>
-                <p class="title">Board Members</p>
-                <p class="description center" >Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, et interdum justo suscipit id. Etiam dictum feugiat tellus, a semper massa. </p>
-                <div class="social"><a href="#"><i class="fa fa-facebook-official"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-instagram"></i></a></div>
-            </div>
-        </div>
     </div>
   </div>
-</div>
-
+  
