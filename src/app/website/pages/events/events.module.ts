@@ -11,9 +11,9 @@ import { EventRegistrationComponent } from './event-registration/event-registrat
 
 const routes: Routes = [
   {
-    path: '',component: EventWrapperComponent,children: [
+    path: '', component: EventWrapperComponent, children: [
       { path: '', redirectTo: 'events', pathMatch: 'full' }, // Redirect to /events by default
-      { path: '', component: EventsComponent },
+      { path: 'events', component: EventsComponent }, // Define 'events' path here
       { path: 'educational', component: EducationalEventsComponent },
       { path: 'awareness', component: AwrenessComponentComponent },
       { path: 'social', component: SocialEventsComponent },
@@ -21,6 +21,7 @@ const routes: Routes = [
     ]
   }
 ];
+
 
 @NgModule({
   declarations: [
