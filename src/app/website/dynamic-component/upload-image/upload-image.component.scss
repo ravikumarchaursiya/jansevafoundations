@@ -5,8 +5,10 @@
   }
 
   .upload-area {
-    width: 30%;
-    /* max-width: 25rem; */
+    width: 100%;
+    max-width: 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
     background-color: white;
     box-shadow: 0 10px 60px rgb(218, 229, 255) !important;
     border: 2px dashed lightblue !important;
@@ -15,6 +17,17 @@
     margin: 0.625rem !important;
     text-align: center !important;
 }
+
+.upload-area img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
 
   
   .upload-area--open { /* Slid Down Animation */
@@ -37,7 +50,7 @@
   /* Drop Zoon */
   .upload-area__drop-zoon {
     position: relative;
-    height: 0.25rem; 
+    height: 100%; 
     display: flex;
     justify-content: center;
     align-items: center;
