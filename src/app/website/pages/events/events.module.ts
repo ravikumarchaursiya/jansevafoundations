@@ -7,6 +7,7 @@ import { EducationalEventsComponent } from './educational-events/educational-eve
 import { SocialEventsComponent } from './social-events/social-events.component';
 import { AwrenessComponentComponent } from './awreness-component/awreness-component.component';
 import { EventWrapperComponent } from './event-wrapper/event-wrapper.component';
+import { EventRegistrationComponent } from './event-registration/event-registration.component';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
       { path: '', component: EventsComponent },
       { path: 'educational', component: EducationalEventsComponent },
       { path: 'awareness', component: AwrenessComponentComponent },
-      { path: 'social', component: SocialEventsComponent }
+      { path: 'social', component: SocialEventsComponent },
+      { path: 'event-registration', component: EventRegistrationComponent }
     ]
   }
 ];
@@ -26,7 +28,8 @@ const routes: Routes = [
     EducationalEventsComponent,
     SocialEventsComponent,
     AwrenessComponentComponent,
-    EventWrapperComponent
+    EventWrapperComponent,
+    EventRegistrationComponent
   ],
   imports: [
     CommonModule,
