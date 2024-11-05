@@ -26,7 +26,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-stats": "npm run ng-high-memory-build-stats",
-    "bundle-report": "webpack-bundle-analyzer dist/sbm-admin/stats-es2015.json",
+    "bundle-report": "webpack-bundle-analyzer dist/sahyog foundation/stats-es2015.json",
     "build-prod-patch": "npm version patch && node ./replace.build.js && npm run ng-high-memory-build-prod && node ./versioning.build.js",
     "build-prod-no-patch": "node ./replace.build.js && npm run ng-high-memory-build-prod && node ./versioning.build.js",
     "build-staging-patch": "npm version patch && node ./replace.build.js && npm run ng-high-memory-build-staging && node ./versioning.build.js",
