@@ -20,6 +20,7 @@ import { InfoComponent } from './info/info.component';
 import { MarqueeSliderComponent } from './marquee-slider/marquee-slider.component';
 import { MaterialModule } from '../shared/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { UploadImageComponent } from './upload-image/upload-image.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     UpcomingEventsComponent,
     InfoComponent,
     MarqueeSliderComponent,
+    UploadImageComponent,
 
   ],
   imports: [
@@ -60,7 +62,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CheckboxComponent,
     IconComponent,
     StickyBarComponent,
-    BackToTopButtonComponent,SliderComponent,PoronamSliderComponent,
+    BackToTopButtonComponent,SliderComponent,PoronamSliderComponent,UploadImageComponent,
     TestimonialComponent,InfoComponent,MarqueeSliderComponent,MaterialModule,ReactiveFormsModule],
    schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
