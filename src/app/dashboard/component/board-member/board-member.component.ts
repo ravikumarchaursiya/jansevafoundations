@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { UtilityService } from 'src/app/common/utility.service';
+import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
   selector: 'app-board-member',
@@ -10,8 +11,8 @@ import { UtilityService } from 'src/app/common/utility.service';
 })
 export class BoardMemberComponent implements OnInit {
   myForm: FormGroup;
-
-  constructor(private fb: FormBuilder, private toastr: ToastrService,private utility:UtilityService) {}
+  baseUrl = ''
+  constructor(private fb: FormBuilder, private toastr: ToastrService,private utility:UtilityService,private dservice:DashboardService) {}
 
   ngOnInit(): void {
     this.myForm = this.fb.group({
@@ -32,6 +33,13 @@ export class BoardMemberComponent implements OnInit {
 
   onSubmit(): void {
     if (this.myForm.valid) {
+      const postData =  this.myForm.getRawValue()
+      this.dservice.addBoardMember(this.baseUrl,postData).subscribe(res=>{
+        if(res){
+          this.toastr.success('Form Submitted Successfully');
+          console.log('Form Value:', this.myForm.value);
+        }
+      })
       this.toastr.success('Form Submitted Successfully');
       console.log('Form Value:', this.myForm.value);
     } else {
