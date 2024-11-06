@@ -5,6 +5,10 @@
   }
 
   .upload-area {
+    width: 100%;
+    max-width: 100%;
+    background-repeat: no-repeat;
+    overflow: hidden;
     background-color: white;
     box-shadow: 0 10px 60px rgb(218, 229, 255) !important;
     border: 2px dashed lightblue !important;
@@ -13,7 +17,6 @@
     text-align: center !important;
     height: 251px;
 }
-
 
   .drop-zoon__file-input {
     display: none;
