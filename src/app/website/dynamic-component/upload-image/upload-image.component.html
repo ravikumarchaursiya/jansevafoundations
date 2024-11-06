@@ -12,7 +12,7 @@
     <div *ngIf="!filePreviewUrl" id="dropZoon" class="upload-area__drop-zoon drop-zoon" (click)="fileInput.click()">
       <span class="drop-zoon__icon"><i class='bx bxs-file-image'></i></span>
       <input #fileInput type="file" class="drop-zoon__file-input" accept="{{ allowedFileTypes.join(',') }}" 
-             (change)="handleFileInput($event)">Click Here.......
+             (change)="handleFileInput($event)"><b style="color: blue;">Click Here.......</b>
     </div>
   </div>
 </div>
