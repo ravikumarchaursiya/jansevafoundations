@@ -46,17 +46,31 @@
                   </mat-error>
                 </mat-form-field>
               </div>
-              <div class="form-group col-md-12">
-                <app-upload-image
-                [maxWidth]="800"
-                [maxHeight]="600"
-                [maxFileSize]="2"
-                [allowedFileTypes]="['image/png', 'image/jpeg']"
-                (imageSelected)="onImageSelected($event)">
-              </app-upload-image>
+              <div class="form-group col">
+                <app-upload-image  [maxFileSize]="2" [allowedFileTypes]="['image/png', 'image/jpeg']"
+                  (imageSelected)="onImageSelected($event)">
+                </app-upload-image>
+              </div>
+              <div class="col-md-9">
+                <app-text-area [control]="descriptionControl" placeholder="Enter description..." [maxLength]="300" [minLength]="50"
+                  [isRequired]="true" [rows]="10" [cols]="10">
+                </app-text-area>
+              </div>
+              
+            </div>
+            <div class="row">
+              <div class="form-group col-md-12 flex-end">
+                <!-- Save Button -->
+                <button mat-raised-button color="primary" type="submit">
+                  Save
+                </button>
+          
+                <!-- Back Button -->
+                <button mat-flat-button type="button" color="primary" (click)="back()">
+                  Back
+                </button>
               </div>
             </div>
-            <button mat-raised-button color="primary" type="submit">Save</button>
           </form>
         </div>
       </div>

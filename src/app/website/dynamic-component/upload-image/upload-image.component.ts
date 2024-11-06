@@ -7,8 +7,8 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
   styleUrls: ['./upload-image.component.scss']
 })
 export class UploadImageComponent implements OnInit, OnDestroy {
-  @Input() maxWidth: number = 800; // Default max width
-  @Input() maxHeight: number = 600; // Default max height
+  @Input() maxWidth: number = 400; // Default max width
+  @Input() maxHeight: number = 400; // Default max height
   @Input() maxFileSize: number = 2; // Max file size in MB
   @Input() allowedFileTypes: string[] = ['image/png', 'image/jpeg']; // Allowed file types
 
@@ -39,7 +39,10 @@ export class UploadImageComponent implements OnInit, OnDestroy {
     }
   }
   
-  
+  clearFilePreview() {
+    this.filePreviewUrl = null;  // Clears the image preview
+    this.fileError = null;       // Optionally clear the error message
+  }
 
   isValidFile(file: File): boolean {
     // Validate file type

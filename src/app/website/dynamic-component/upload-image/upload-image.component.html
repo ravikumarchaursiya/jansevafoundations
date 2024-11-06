@@ -1,34 +1,26 @@
-<div id="uploadArea" class="upload-area"> 
-    <div class="upload-area__header" *ngIf="!filePreviewUrl">
-      <h1 class="upload-area__title">Upload your file</h1>
-      <p class="upload-area__paragraph">
-        File should be an image
-        <strong class="upload-area__tooltip">Like
-          <span class="upload-area__tooltip-data">{{ allowedFileTypes.join(', ') }}</span>
-        </strong>
-      </p>
-    </div>
-    <div *ngIf="!filePreviewUrl"  id="dropZoon" class="upload-area__drop-zoon drop-zoon" (click)="fileInput.click()" >
+<div id="uploadArea" class="upload-area" *ngIf="!filePreviewUrl"> 
+  <div class="upload-area__header">
+    <h1 class="upload-area__title">Upload your file</h1>
+    <p class="upload-area__paragraph">
+      File should be an image
+      <strong class="upload-area__tooltip">Like
+        <span class="upload-area__tooltip-data">{{ allowedFileTypes.join(', ') }}</span>
+      </strong>
+    </p>
+  </div>
+  <div>
+    <div *ngIf="!filePreviewUrl" id="dropZoon" class="upload-area__drop-zoon drop-zoon" (click)="fileInput.click()">
       <span class="drop-zoon__icon"><i class='bx bxs-file-image'></i></span>
       <input #fileInput type="file" class="drop-zoon__file-input" accept="{{ allowedFileTypes.join(',') }}" 
              (change)="handleFileInput($event)">Click Here.......
     </div>
-    <div id="fileDetails" class="upload-area__file-details file-details">
-      <!-- <h3 class="file-details__title">Uploaded File</h3> -->
-      <div *ngIf="selectedFile" class="uploaded-file">
-        <div class="uploaded-file__icon-container">
-          <i class='bx bxs-file-blank uploaded-file__icon'></i>
-          <span class="uploaded-file__icon-text">{{ selectedFile?.type }}</span>
-        </div>
-        <div class="uploaded-file__info">
-          <span class="uploaded-file__name">{{ selectedFile?.name }}</span>
-          <span class="uploaded-file__counter">{{ (selectedFile?.size / 1024 / 1024).toFixed(2) }} MB</span>
-        </div>
-      </div>
-      <div *ngIf="filePreviewUrl" class="image-preview">
-        <img [src]="filePreviewUrl" alt="Image preview" [style.maxWidth.px]="maxWidth" [style.maxHeight.px]="maxHeight">
-      </div>
-      <p *ngIf="fileError" class="file-error">{{ fileError }}</p>
-    </div>
   </div>
-  
+</div>
+
+<div id="fileDetails" class="upload-area__file-details file-details" *ngIf="filePreviewUrl">
+  <div *ngIf="filePreviewUrl" class="image-preview">
+    <img [src]="filePreviewUrl" alt="Image preview">
+    <button class="close-btn" (click)="clearFilePreview()">&#10006;</button> <!-- Cross Button -->
+  </div>
+  <p *ngIf="fileError" class="file-error">{{ fileError }}</p>
+</div>
