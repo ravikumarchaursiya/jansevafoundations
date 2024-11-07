@@ -11,7 +11,8 @@ import { MatTableDataSource } from '@angular/material/table';
 export class BoardMemberListComponent implements OnInit  {
   membersList  = new MatTableDataSource<any>()
   list:any
-  displayedColumns: string[] = ['name', 'position', 'email', 'phone'];
+  displayedColumns: string[] = ['name', 'position', 'email', 'phone', 'actions'];  // Add 'actions' here
+
  ngOnInit(): void {
   this.list =[
     {
@@ -47,4 +48,14 @@ export class BoardMemberListComponent implements OnInit  {
   ]
      this.membersList = this.list
  }
+ editMember(member: any) {
+  console.log('Edit Member:', member);
+
+}
+
+// Method to handle deleting a member
+deleteMember(member: any) {
+  console.log('Delete Member:', member);
+
+}
 }

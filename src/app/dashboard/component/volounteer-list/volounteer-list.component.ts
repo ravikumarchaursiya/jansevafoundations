@@ -11,7 +11,8 @@ export class VolounteerListComponent  {
 
   membersList  = new MatTableDataSource<any>()
   list:any
-  displayedColumns: string[] = ['name', 'position', 'email', 'phone'];
+  displayedColumns: string[] = ['name', 'position', 'email', 'phone', 'actions'];  // Add 'actions' here
+
  ngOnInit(): void {
   this.list =[
     {
@@ -47,5 +48,14 @@ export class VolounteerListComponent  {
   ]
      this.membersList = this.list
  }
+ editMember(member: any) {
+  console.log('Edit Member:', member);
+  // Implement edit logic here, maybe opening a dialog or routing to an edit page
+}
 
+// Method to handle deleting a member
+deleteMember(member: any) {
+  console.log('Delete Member:', member);
+  // Implement delete logic here (like opening a confirmation dialog and removing the member)
+}
 }
