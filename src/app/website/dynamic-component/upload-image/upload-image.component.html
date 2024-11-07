@@ -22,5 +22,5 @@
     <img [src]="filePreviewUrl" alt="Image preview">
     <button class="close-btn" (click)="clearFilePreview()">&#10006;</button> <!-- Cross Button -->
   </div>
-  <p *ngIf="fileError" class="file-error">{{ fileError }}</p>
 </div>
+<p *ngIf="fileError" class="file-error">{{ fileError }}</p>

@@ -7,8 +7,8 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
   styleUrls: ['./upload-image.component.scss']
 })
 export class UploadImageComponent implements OnInit, OnDestroy {
-  @Input() maxWidth: number = 400; // Default max width
-  @Input() maxHeight: number = 400; // Default max height
+  // @Input() maxWidth: number = 319; // Default max width
+  // @Input() maxHeight: number = 317; // Default max height
   @Input() maxFileSize: number = 2; // Max file size in MB
   @Input() allowedFileTypes: string[] = ['image/png', 'image/jpeg']; // Allowed file types
 
@@ -59,14 +59,14 @@ export class UploadImageComponent implements OnInit, OnDestroy {
     }
 
     // Validate image dimensions
-    const img = new Image();
-    img.onload = () => {
-      if (img.width > this.maxWidth || img.height > this.maxHeight) {
-        this.fileError = `Image dimensions exceed the maximum allowed size of ${this.maxWidth}x${this.maxHeight} pixels.`;
-        this.imageSelected.emit(null); // Emit null if dimensions are invalid
-      }
-    };
-    img.src = URL.createObjectURL(file);
+    // const img = new Image();
+    // img.onload = () => {
+    //   if (img.width > this.maxWidth || img.height > this.maxHeight) {
+    //     this.fileError = `Image dimensions exceed the maximum allowed size of ${this.maxWidth}x${this.maxHeight} pixels.`;
+    //     this.imageSelected.emit(null); // Emit null if dimensions are invalid
+    //   }
+    // };
+    // img.src = URL.createObjectURL(file);
 
     return true;
   }
