@@ -21,7 +21,9 @@ export class VolounteerComponent  {
       name: ['', Validators.required],
       position: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      phone: ['', Validators.required]
+      phone: ['', Validators.required],
+      profileImage: ['',Validators.required],
+      description: new FormControl('')
     });
   }
 ngOnInit(): void {
