@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-upload-image',
@@ -7,73 +8,74 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
   styleUrls: ['./upload-image.component.scss']
 })
 export class UploadImageComponent implements OnInit, OnDestroy {
-  // @Input() maxWidth: number = 319; // Default max width
-  // @Input() maxHeight: number = 317; // Default max height
   @Input() maxFileSize: number = 2; // Max file size in MB
-  @Input() allowedFileTypes: string[] = ['image/png', 'image/jpeg']; // Allowed file types
-
-  @Output() imageSelected = new EventEmitter<File | null>();
+  @Input() allowedFileTypes: string[] = ['image/png', 'image/jpeg'];
+  @Input() imageControl: FormControl;
 
   selectedFile: File | null = null;
   filePreviewUrl: any | null = null;
   fileError: string | null = null;
 
-  ngOnInit(): void {}
-  constructor(private sanitizer: DomSanitizer) { }
+  constructor(private sanitizer: DomSanitizer) {}
+
+  ngOnInit(): void {
+    if (this.imageControl) {
+      // Ensure required validator is set if needed
+      const validators = this.imageControl.validator
+        ? [this.imageControl.validator, Validators.required]
+        : [Validators.required];
+      this.imageControl.setValidators(validators);
+      this.imageControl.updateValueAndValidity();
+    }
+  }
+
   handleFileInput(event: Event): void {
     const fileInput = event.target as HTMLInputElement;
     if (fileInput.files && fileInput.files.length > 0) {
       this.selectedFile = fileInput.files[0];
       this.fileError = null;
-  
+
       if (this.isValidFile(this.selectedFile)) {
         const objectURL = URL.createObjectURL(this.selectedFile);
         this.filePreviewUrl = this.sanitizer.bypassSecurityTrustUrl(objectURL) as SafeUrl;
-        this.imageSelected.emit(this.selectedFile);
+        this.imageControl.setValue(this.selectedFile); // Set the control's value
+        this.imageControl.setErrors(null); // Clear errors if file is valid
       } else {
-        this.imageSelected.emit(null);
+        this.clearFilePreview();
+        this.imageControl.setErrors({ required: true }); // Set error if invalid file
       }
     } else {
-      this.fileError = 'No file selected';
-      this.imageSelected.emit(null);
+      this.clearFilePreview();
     }
   }
-  
-  clearFilePreview() {
-    this.filePreviewUrl = null;  // Clears the image preview
-    this.fileError = null;       // Optionally clear the error message
+
+  clearFilePreview(): void {
+    this.filePreviewUrl = null;
+    this.fileError = null;
+    this.selectedFile = null;
+    this.imageControl.setValue(null);  // Clear the form control value
+    this.imageControl.markAsTouched(); // Mark as touched to trigger validation error
+    this.imageControl.updateValueAndValidity(); // Ensure the validity is checked again
   }
+  
 
   isValidFile(file: File): boolean {
-    // Validate file type
     if (!this.allowedFileTypes.includes(file.type)) {
       this.fileError = `Invalid file type. Allowed types: ${this.allowedFileTypes.join(', ')}`;
       return false;
     }
 
-    // Validate file size
     const fileSizeInMB = file.size / (1024 * 1024);
     if (fileSizeInMB > this.maxFileSize) {
       this.fileError = `File size exceeds the limit of ${this.maxFileSize} MB.`;
       return false;
     }
-
-    // Validate image dimensions
-    // const img = new Image();
-    // img.onload = () => {
-    //   if (img.width > this.maxWidth || img.height > this.maxHeight) {
-    //     this.fileError = `Image dimensions exceed the maximum allowed size of ${this.maxWidth}x${this.maxHeight} pixels.`;
-    //     this.imageSelected.emit(null); // Emit null if dimensions are invalid
-    //   }
-    // };
-    // img.src = URL.createObjectURL(file);
-
     return true;
   }
 
   ngOnDestroy(): void {
     if (this.filePreviewUrl) {
-      URL.revokeObjectURL(this.filePreviewUrl); // Clean up preview URL
+      URL.revokeObjectURL(this.filePreviewUrl);
     }
   }
 }

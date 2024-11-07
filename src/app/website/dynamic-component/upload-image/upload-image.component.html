@@ -11,7 +11,7 @@
   <div>
     <div *ngIf="!filePreviewUrl" id="dropZoon" class="upload-area__drop-zoon drop-zoon" (click)="fileInput.click()">
       <span class="drop-zoon__icon"><i class='bx bxs-file-image'></i></span>
-      <input #fileInput type="file" class="drop-zoon__file-input" accept="{{ allowedFileTypes.join(',') }}" 
+      <input #fileInput type="file" class="drop-zoon__file-input" [accept]="allowedFileTypes.join(',')" 
              (change)="handleFileInput($event)"><b style="color: blue;">Click Here.......</b>
     </div>
   </div>
@@ -23,4 +23,10 @@
     <button class="close-btn" (click)="clearFilePreview()">&#10006;</button> <!-- Cross Button -->
   </div>
 </div>
+
+<!-- Dynamic error message -->
 <p *ngIf="fileError" class="file-error">{{ fileError }}</p>
+<p *ngIf="imageControl?.hasError('required') && imageControl?.touched" class="file-error">
+  Profile image is required.
+</p>
+

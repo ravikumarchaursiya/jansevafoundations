@@ -20,12 +20,15 @@ export class BoardMemberComponent implements OnInit {
       position: ['', Validators.required],
       email: ['', Validators.required],
       phone: ['', Validators.required],
-      uploadImage: [null, Validators.required],
+      profileImage: ['',Validators.required],
       description: new FormControl('')
     });
   }
   get descriptionControl(): FormControl {
     return this.myForm.get('description') as FormControl;
+  }
+  get profileImageControl(): FormControl {
+    return this.myForm.get('profileImage') as FormControl;
   }
   onImageSelected(file: File | null): void {
     this.myForm.get('uploadImage')?.setValue(file); // Set the form control value
@@ -44,7 +47,7 @@ export class BoardMemberComponent implements OnInit {
       console.log('Form Value:', this.myForm.value);
     } else {
       this.toastr.error('Form Is Invalid');
-      this.myForm.updateValueAndValidity();
+      this.myForm.markAllAsTouched();
     }
   }
   back(){

@@ -12,7 +12,7 @@
               <div class="form-group col-md-3">
                 <mat-form-field appearance="fill">
                   <mat-label>Name</mat-label>
-                  <input matInput id="name" formControlName="name"  appCharSpaceOnly/>
+                  <input matInput id="name" formControlName="name" appCharSpaceOnly />
                   <mat-error *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">
                     Name is required.
                   </mat-error>
@@ -40,23 +40,24 @@
               <div class="form-group col-md-3">
                 <mat-form-field appearance="fill">
                   <mat-label>Phone</mat-label>
-                  <input matInput id="phone" formControlName="phone"  numericOnly/>
+                  <input matInput id="phone" formControlName="phone" numericOnly />
                   <mat-error *ngIf="myForm.get('phone')?.invalid && myForm.get('phone')?.touched">
                     Phone number is required.
                   </mat-error>
                 </mat-form-field>
               </div>
               <div class="form-group col-md-3">
-                <app-upload-image  [maxFileSize]="2" [allowedFileTypes]="['image/png', 'image/jpeg']"
-                  (imageSelected)="onImageSelected($event)">
+                <app-upload-image [imageControl]="profileImageControl" [maxFileSize]="2"
+                  [allowedFileTypes]="['image/png', 'image/jpeg']">
                 </app-upload-image>
+
               </div>
               <div class="col-md-9">
-                <app-text-area [control]="descriptionControl" placeholder="Enter description..." [maxLength]="300" [minLength]="50"
-                  [isRequired]="true" [rows]="10" [cols]="10">
+                <app-text-area [control]="descriptionControl" placeholder="Enter description..." [maxLength]="300"
+                  [minLength]="50" [isRequired]="true" [rows]="10" [cols]="10">
                 </app-text-area>
               </div>
-              
+
             </div>
             <div class="row">
               <div class="flex-start col-md-6">
