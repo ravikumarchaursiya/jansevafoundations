@@ -15,4 +15,13 @@ export class DashboardService {
  addBoardMember(baseUrl,data):Observable<any>{
   return this.http.post(this.apiUrl + baseUrl, data)
  }
+ addTeamMember(baseUrl,data):Observable<any>{
+  return this.http.post(this.apiUrl + baseUrl, data)
+ }
+ addDoner(baseUrl,data):Observable<any>{
+  return this.http.post(this.apiUrl + baseUrl, data)
+ }
+ addVolounteer(baseUrl,data):Observable<any>{
+  return this.http.post(this.apiUrl + baseUrl, data)
+ }
 }

@@ -12,54 +12,52 @@
               <form [formGroup]="donerForm" (ngSubmit)="onSubmit()">
                 <div class="row">
                   <div class="form-group col-md-3">
-                    <mat-form-field appearance="outline" class="custom-field-width">
+                    <mat-form-field appearance="outline">
                       <mat-label>Name</mat-label>
-                      <input matInput formControlName="name" placeholder="Board Member Name">
-                      <mat-error *ngIf="donerForm.controls['name'].invalid && donerForm.controls['name'].touched">
-                        Name is required
+                      <input matInput id="name" formControlName="name" appCharSpaceOnly />
+                      <mat-error *ngIf="donerForm.get('name')?.invalid && donerForm.get('name')?.touched">
+                        Name is required.
                       </mat-error>
                     </mat-form-field>
-                    </div>
+                  </div>
                   <div class="form-group col-md-3">
-                <mat-form-field appearance="outline"class="custom-field-width">
-                  <mat-label>Position</mat-label>
-                  <input matInput formControlName="position" placeholder="Board Member Position">
-                  <mat-error *ngIf="donerForm.controls['position'].invalid && donerForm.controls['position'].touched">
-                    Position is required
-                  </mat-error>
-                </mat-form-field>
-            </div>
-            <div class="form-group col-md-3">
-                <mat-form-field appearance="outline"class="custom-field-width">
-                  <mat-label>Email</mat-label>
-                  <input matInput formControlName="email" placeholder="Email">
-                  <mat-error *ngIf="donerForm.controls['email'].invalid && donerForm.controls['email'].touched">
-                    Please enter a valid email
-                  </mat-error>
-                </mat-form-field>
-            </div>
-            <div class="form-group col-md-3">
-                <mat-form-field appearance="outline"class="custom-field-width">
-                  <mat-label>Phone</mat-label>
-                  <input matInput formControlName="phone" placeholder="Phone Number">
-                  <mat-error *ngIf="donerForm.controls['phone'].invalid && donerForm.controls['phone'].touched">
-                    Phone number is required
-                  </mat-error>
-                </mat-form-field>
-            </div>
-          </div>
-          <div class="row">
-            <div class="form-group col-md-12 flex-end">
-              <button *ngIf="id && !isEditable" mat-flat-button color="primary" type="button" (click)="editForm()">Edit</button>
-              <button mat-flat-button type="reset" color="warn" *ngIf="!id">Reset</button>
-              <button mat-flat-button type="submit" color="primary"*ngIf="!id && !isEditable">Save</button>
-              <button mat-flat-button type="button" color="warn" (click)="back()"*ngIf="isEditable">Cancel</button>
-              <button mat-flat-button type="submit" color="primary"*ngIf="id&&isEditable">Update</button>
-          </div>
-           <div class="flex-start" style="position: absolute;"> 
-            <button mat-flat-button type="button" color="primary" (click)="back()"*ngIf="!isEditable&&!id">Back</button>
-           </div>
-          </div>
+                    <mat-form-field appearance="outline">
+                      <mat-label>Position</mat-label>
+                      <input matInput id="position" formControlName="position" appCharSpaceOnly />
+                      <mat-error *ngIf="donerForm.get('position')?.invalid && donerForm.get('position')?.touched">
+                        Position is required.
+                      </mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <app-input [control]="emailControl" [label]="'Email'" [type]="'email'" [isRequired]="true"></app-input>
+                  </div>
+    
+                  <div class="form-group col-md-3">
+                    <app-input [control]="phoneControl" [label]="'phone'" [type]="'text'" [isRequired]="true"></app-input>
+                  </div>
+                  <div class="form-group col-md-3">
+                    <app-upload-image [imageControl]="profileImageControl" [maxFileSize]="2" [allowedFileTypes]="['image/png', 'image/jpeg']"></app-upload-image>
+                  </div>
+                  <div class="col-md-9">
+                    <app-text-area [control]="descriptionControl"  [isRequired]="true" [rows]="10" [cols]="10" [label]="'Description'" [placeholder]="'Enter text'" [minLength]="5" [maxLength]="300" >
+                    </app-text-area>
+                  </div>
+    
+                </div>
+                <div class="row">
+                  <div class="flex-start col-md-6">
+                    <button mat-flat-button type="button" color="primary" (click)="back()">
+                      Back
+                    </button>
+                  </div>
+                  <div class="form-group flex-end col-md-6">
+                    <!-- Save Button -->
+                    <button mat-raised-button color="primary" type="submit">
+                      Save
+                    </button>
+                  </div>
+                </div>
               </form>
             </div>
         </div>

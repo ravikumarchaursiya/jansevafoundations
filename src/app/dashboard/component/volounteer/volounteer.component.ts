@@ -1,7 +1,9 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { UtilityService } from 'src/app/common/utility.service';
+import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
   selector: 'app-volounteer',
@@ -9,12 +11,12 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./volounteer.component.scss']
 })
 export class VolounteerComponent  {
-
   volounteerForm: FormGroup;
   membersList: any[] = [];
  id:any
  isEditable:boolean =  false
-  constructor(private fb: FormBuilder,private toast:ToastrService,private location:Location) {
+ baseUrl = '/'
+ constructor(private fb: FormBuilder,private toastr:ToastrService,private location:Location,private utility:UtilityService,private dservice:DashboardService) {
     this.volounteerForm = this.fb.group({
       name: ['', Validators.required],
       position: ['', Validators.required],
@@ -25,17 +27,54 @@ export class VolounteerComponent  {
 ngOnInit(): void {
     
 }
-  onSubmit() {
-    if (this.volounteerForm.valid) {
-      this.membersList.push(this.volounteerForm.value);
-      this.toast.success("Volounteer Added Successfully")
-      // this.volounteerForm.reset();
-    }
+get descriptionControl(): FormControl {
+  return this.volounteerForm.get('description') as FormControl;
+}
+get profileImageControl(): FormControl {
+  return this.volounteerForm.get('profileImage') as FormControl;
+}
+get emailControl(): FormControl {
+  return this.volounteerForm.get('email') as FormControl;
+}
+get phoneControl(): FormControl {
+  return this.volounteerForm.get('phone') as FormControl;
+}
+onSubmit(): void {
+  if (this.volounteerForm.valid) {
+    debugger;
+    // Create FormData to handle file and other form data
+    const formData = new FormData();
+
+    // Loop through the form controls
+    Object.keys(this.volounteerForm.controls).forEach(controlName => {
+      const control = this.volounteerForm.get(controlName);
+
+      if (control instanceof FormControl) {
+        const value = control.value;
+
+        // If the control is the profileImage and has a file, append it
+        if (controlName === 'profileImage' && value) {
+          formData.append('profileImage', value, value.name); // Use the file object
+        } else {
+          formData.append(controlName, value); // Append other form control values
+        }
+      }
+    });
+
+    // Now submit the form data
+    this.dservice.addVolounteer(this.baseUrl, formData).subscribe(res => {
+      if (res) {
+        this.toastr.success('Form Submitted Successfully');
+        console.log('Form Value:', formData); // Log the FormData if necessary
+      }
+    });
+  } else {
+    this.toastr.error('Form Is Invalid');
+    this.volounteerForm.markAllAsTouched();
   }
-  editForm(){
-    this.isEditable = true
-  }
-  back(){
-    this.location.back()
-  }
+}
+
+back(){
+  this.utility.back()
+}
 }
