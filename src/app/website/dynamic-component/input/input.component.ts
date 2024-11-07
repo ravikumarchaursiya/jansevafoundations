@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { Component, Directive, Input, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-input',
@@ -14,9 +14,34 @@ export class InputComponent implements OnInit {
   @Input() type: string = 'text';  // Input type (text, email, password, etc.)
   @Input() isRequired: boolean = false;  // Required field
   @Input() label: string = '';  // Label for the input field
+  @Input() decimalDirective: Directive | null = null;  // Directive to apply dynamically
+  @Input() numberOnly: Directive | null = null;  // Directive to apply dynamically
+  @Input() decimalPlaces: Directive | null = null;  // Directive to apply dynamically
+  @Input() alphanum: Directive | null = null;  // Directive to apply dynamically
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    if (this.control) {
+      const validators = [];
+
+      if (this.minLength) {
+        validators.push(Validators.minLength(this.minLength));
+      }
+
+      if (this.maxLength) {
+        validators.push(Validators.maxLength(this.maxLength));
+      }
+
+      if (this.isRequired) {
+        validators.push(Validators.required);
+      }
+
+      // Only set validators if there are any
+      if (validators.length > 0) {
+        this.control.setValidators(validators);
+        this.control.updateValueAndValidity(); // Call it properly with parentheses
+      }
+    }
   }
 
 }

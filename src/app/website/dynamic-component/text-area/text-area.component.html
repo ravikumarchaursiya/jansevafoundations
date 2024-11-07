@@ -1,32 +1,31 @@
 <div>
-    <mat-form-field appearance="outline" class="full-width">
-      <mat-label>{{ placeholder }}</mat-label>
-      <textarea
-        matInput
-        [formControl]="control"
-        [attr.placeholder]="placeholder"
-        [attr.maxlength]="maxLength"
-        [attr.minlength]="minLength"
-        class="text-area"
-        [rows]="rows" 
-        [cols]="cols" 
-      ></textarea>
-  
-      <!-- Character count display -->
-      <div class="character-count">
-        {{ control?.value?.length || 0 }} / {{ maxLength }}
-      </div>
-  
-      <!-- Error messages -->
-      <mat-error *ngIf="control?.hasError('required') && control?.touched">
-        This field is required.
-      </mat-error>
-      <mat-error *ngIf="control?.hasError('minlength') && control?.touched">
-        Minimum {{ minLength }} characters required.
-      </mat-error>
-      <mat-error *ngIf="control?.hasError('maxlength') && control?.touched">
-        Maximum {{ maxLength }} characters allowed.
-      </mat-error>
-    </mat-form-field>
-  </div>
-  
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>{{ label }}</mat-label> <!-- Bind dynamic label here -->
+    <textarea
+      matInput
+      [formControl]="control"
+      [attr.placeholder]="placeholder"
+      [attr.maxlength]="maxLength"
+      [attr.minlength]="minLength"
+      class="text-area"
+      [rows]="rows" 
+      [cols]="cols" 
+    ></textarea>
+
+    <!-- Character count display -->
+    <div class="character-count">
+      {{ control?.value?.length || 0 }} / {{ maxLength }}
+    </div>
+
+    <!-- Error messages with dynamic label binding -->
+    <mat-error *ngIf="control?.hasError('required') && control?.touched">
+      {{ label }} is required.
+    </mat-error>
+    <mat-error *ngIf="control?.hasError('minlength') && control?.touched">
+      Minimum {{ minLength }} characters required for {{ label }}.
+    </mat-error>
+    <mat-error *ngIf="control?.hasError('maxlength') && control?.touched">
+      Maximum {{ maxLength }} characters allowed for {{ label }}.
+    </mat-error>
+  </mat-form-field>
+</div>

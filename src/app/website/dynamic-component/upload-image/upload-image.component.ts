@@ -38,7 +38,7 @@ export class UploadImageComponent implements OnInit, OnDestroy {
       if (this.isValidFile(this.selectedFile)) {
         const objectURL = URL.createObjectURL(this.selectedFile);
         this.filePreviewUrl = this.sanitizer.bypassSecurityTrustUrl(objectURL) as SafeUrl;
-        this.imageControl.setValue(this.selectedFile); // Set the control's value
+        this.imageControl.setValue(this.selectedFile); // Set the control's value to the selected file
         this.imageControl.setErrors(null); // Clear errors if file is valid
       } else {
         this.clearFilePreview();
@@ -57,7 +57,6 @@ export class UploadImageComponent implements OnInit, OnDestroy {
     this.imageControl.markAsTouched(); // Mark as touched to trigger validation error
     this.imageControl.updateValueAndValidity(); // Ensure the validity is checked again
   }
-  
 
   isValidFile(file: File): boolean {
     if (!this.allowedFileTypes.includes(file.type)) {

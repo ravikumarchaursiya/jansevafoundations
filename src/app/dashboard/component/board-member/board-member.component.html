@@ -10,7 +10,7 @@
           <form [formGroup]="myForm" (ngSubmit)="onSubmit()">
             <div class="row">
               <div class="form-group col-md-3">
-                <mat-form-field appearance="fill">
+                <mat-form-field appearance="outline">
                   <mat-label>Name</mat-label>
                   <input matInput id="name" formControlName="name" appCharSpaceOnly />
                   <mat-error *ngIf="myForm.get('name')?.invalid && myForm.get('name')?.touched">
@@ -19,7 +19,7 @@
                 </mat-form-field>
               </div>
               <div class="form-group col-md-3">
-                <mat-form-field appearance="fill">
+                <mat-form-field appearance="outline">
                   <mat-label>Position</mat-label>
                   <input matInput id="position" formControlName="position" appCharSpaceOnly />
                   <mat-error *ngIf="myForm.get('position')?.invalid && myForm.get('position')?.touched">
@@ -28,33 +28,18 @@
                 </mat-form-field>
               </div>
               <div class="form-group col-md-3">
-                <mat-form-field appearance="fill">
-                  <mat-label>Email</mat-label>
-                  <input matInput id="email" formControlName="email" />
-                  <mat-error *ngIf="myForm.get('email')?.invalid && myForm.get('email')?.touched">
-                    Valid email is required.
-                  </mat-error>
-                </mat-form-field>
+                <app-input [control]="emailControl" [label]="'Email'" [type]="'email'" [isRequired]="true"></app-input>
               </div>
 
               <div class="form-group col-md-3">
-                <mat-form-field appearance="fill">
-                  <mat-label>Phone</mat-label>
-                  <input matInput id="phone" formControlName="phone" numericOnly />
-                  <mat-error *ngIf="myForm.get('phone')?.invalid && myForm.get('phone')?.touched">
-                    Phone number is required.
-                  </mat-error>
-                </mat-form-field>
+                <app-input [control]="phoneControl" [label]="'phone'" [type]="'text'" [isRequired]="true"></app-input>
               </div>
               <div class="form-group col-md-3">
-                <app-upload-image [imageControl]="profileImageControl" [maxFileSize]="2"
-                  [allowedFileTypes]="['image/png', 'image/jpeg']">
-                </app-upload-image>
+                <app-upload-image [imageControl]="profileImageControl" [maxFileSize]="2" [allowedFileTypes]="['image/png', 'image/jpeg']"></app-upload-image>
 
               </div>
               <div class="col-md-9">
-                <app-text-area [control]="descriptionControl" placeholder="Enter description..." [maxLength]="300"
-                  [minLength]="50" [isRequired]="true" [rows]="10" [cols]="10">
+                <app-text-area [control]="descriptionControl"  [isRequired]="true" [rows]="10" [cols]="10" [label]="'Description'" [placeholder]="'Enter text'" [minLength]="5" [maxLength]="300" >
                 </app-text-area>
               </div>
 

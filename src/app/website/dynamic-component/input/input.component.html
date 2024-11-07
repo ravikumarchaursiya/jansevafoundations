@@ -1,1 +1,26 @@
-<p>input works!</p>
+<div>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>{{ label }}</mat-label> <!-- Bind dynamic label here -->
+      <input
+        type="text"
+        matInput
+        [formControl]="control"
+        class="text-area"
+      />
+  
+      <!-- Character count display -->
+
+  
+      <!-- Error messages with dynamic label binding -->
+      <mat-error *ngIf="control?.hasError('required') && control?.touched">
+        {{ label }} is required.
+      </mat-error>
+      <mat-error *ngIf="control?.hasError('minlength') && control?.touched">
+        Minimum {{ minLength }} characters required for {{ label }}.
+      </mat-error>
+      <mat-error *ngIf="control?.hasError('maxlength') && control?.touched">
+        Maximum {{ maxLength }} characters allowed for {{ label }}.
+      </mat-error>
+    </mat-form-field>
+  </div>
+  

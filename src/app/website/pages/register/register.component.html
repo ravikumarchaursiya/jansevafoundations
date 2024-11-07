@@ -5,7 +5,7 @@
       <h2>Registration Form</h2>
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <!-- Name Input -->
-        <mat-form-field class="full-width" appearance="fill" >
+        <mat-form-field class="full-width" appearance="outline" >
           <mat-label>Name</mat-label>
           <input matInput type="text" id="name" formControlName="name" placeholder="Enter your name" />
           <mat-error *ngIf="f['name'].invalid && (f['name'].dirty || f['name'].touched)">
@@ -15,7 +15,7 @@
         </mat-form-field>
 
         <!-- Role Dropdown -->
-        <mat-form-field class="full-width" appearance="fill">
+        <mat-form-field class="full-width" appearance="outline">
             <mat-label>Role</mat-label>
             <mat-select formControlName="role">
               <mat-option value="" disabled>Select a role</mat-option>
@@ -24,7 +24,7 @@
           </mat-form-field>
 
         <!-- Email Input -->
-        <mat-form-field class="full-width" appearance="fill">
+        <mat-form-field class="full-width" appearance="outline">
           <mat-label>Email</mat-label>
           <input matInput type="email" id="email" formControlName="emailAddress" placeholder="Enter your email" />
           <mat-error *ngIf="f['emailAddress'].invalid && (f['emailAddress'].dirty || f['emailAddress'].touched)">
@@ -32,7 +32,7 @@
             <small *ngIf="f['emailAddress'].errors?.['emailAddress']">Enter a valid email address</small>
           </mat-error>
         </mat-form-field>
-        <mat-form-field class="full-width" appearance="fill">
+        <mat-form-field class="full-width" appearance="outline">
           <mat-label>Mobile No</mat-label>
           <input matInput type="MobileNumber" id="MobileNumber" formControlName="MobileNumber" placeholder="Enter your MobileNumber" />
           <mat-error *ngIf="f['MobileNumber'].invalid && (f['MobileNumber'].dirty || f['MobileNumber'].touched)">
@@ -41,7 +41,7 @@
         </mat-form-field>
 
         <!-- Password Input -->
-        <mat-form-field class="full-width" appearance="fill">
+        <mat-form-field class="full-width" appearance="outline">
           <mat-label>Password</mat-label>
           <input matInput type="password" id="password" formControlName="password" placeholder="Enter your password" />
           <mat-error *ngIf="f['password'].invalid && (f['password'].dirty || f['password'].touched)">

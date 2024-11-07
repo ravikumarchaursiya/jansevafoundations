@@ -12,7 +12,7 @@
               <form [formGroup]="donerForm" (ngSubmit)="onSubmit()">
                 <div class="row">
                   <div class="form-group col-md-3">
-                    <mat-form-field appearance="fill" class="custom-field-width">
+                    <mat-form-field appearance="outline" class="custom-field-width">
                       <mat-label>Name</mat-label>
                       <input matInput formControlName="name" placeholder="Board Member Name">
                       <mat-error *ngIf="donerForm.controls['name'].invalid && donerForm.controls['name'].touched">
@@ -21,7 +21,7 @@
                     </mat-form-field>
                     </div>
                   <div class="form-group col-md-3">
-                <mat-form-field appearance="fill"class="custom-field-width">
+                <mat-form-field appearance="outline"class="custom-field-width">
                   <mat-label>Position</mat-label>
                   <input matInput formControlName="position" placeholder="Board Member Position">
                   <mat-error *ngIf="donerForm.controls['position'].invalid && donerForm.controls['position'].touched">
@@ -30,7 +30,7 @@
                 </mat-form-field>
             </div>
             <div class="form-group col-md-3">
-                <mat-form-field appearance="fill"class="custom-field-width">
+                <mat-form-field appearance="outline"class="custom-field-width">
                   <mat-label>Email</mat-label>
                   <input matInput formControlName="email" placeholder="Email">
                   <mat-error *ngIf="donerForm.controls['email'].invalid && donerForm.controls['email'].touched">
@@ -39,7 +39,7 @@
                 </mat-form-field>
             </div>
             <div class="form-group col-md-3">
-                <mat-form-field appearance="fill"class="custom-field-width">
+                <mat-form-field appearance="outline"class="custom-field-width">
                   <mat-label>Phone</mat-label>
                   <input matInput formControlName="phone" placeholder="Phone Number">
                   <mat-error *ngIf="donerForm.controls['phone'].invalid && donerForm.controls['phone'].touched">

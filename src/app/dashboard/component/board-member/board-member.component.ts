@@ -30,26 +30,51 @@ export class BoardMemberComponent implements OnInit {
   get profileImageControl(): FormControl {
     return this.myForm.get('profileImage') as FormControl;
   }
+  get emailControl(): FormControl {
+    return this.myForm.get('email') as FormControl;
+  }
+  get phoneControl(): FormControl {
+    return this.myForm.get('phone') as FormControl;
+  }
   onImageSelected(file: File | null): void {
-    this.myForm.get('uploadImage')?.setValue(file); // Set the form control value
+    this.myForm.get('profileImage')?.setValue(file); // Set the form control value
   }
 
   onSubmit(): void {
     if (this.myForm.valid) {
-      const postData =  this.myForm.getRawValue()
-      this.dservice.addBoardMember(this.baseUrl,postData).subscribe(res=>{
-        if(res){
-          this.toastr.success('Form Submitted Successfully');
-          console.log('Form Value:', this.myForm.value);
+      debugger;
+      // Create FormData to handle file and other form data
+      const formData = new FormData();
+  
+      // Loop through the form controls
+      Object.keys(this.myForm.controls).forEach(controlName => {
+        const control = this.myForm.get(controlName);
+  
+        if (control instanceof FormControl) {
+          const value = control.value;
+  
+          // If the control is the profileImage and has a file, append it
+          if (controlName === 'profileImage' && value) {
+            formData.append('profileImage', value, value.name); // Use the file object
+          } else {
+            formData.append(controlName, value); // Append other form control values
+          }
         }
-      })
-      this.toastr.success('Form Submitted Successfully');
-      console.log('Form Value:', this.myForm.value);
+      });
+  
+      // Now submit the form data
+      this.dservice.addBoardMember(this.baseUrl, formData).subscribe(res => {
+        if (res) {
+          this.toastr.success('Form Submitted Successfully');
+          console.log('Form Value:', formData); // Log the FormData if necessary
+        }
+      });
     } else {
       this.toastr.error('Form Is Invalid');
       this.myForm.markAllAsTouched();
     }
   }
+  
   back(){
     this.utility.back()
   }
