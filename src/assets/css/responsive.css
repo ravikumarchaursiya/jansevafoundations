@@ -301,15 +301,20 @@
         font-size: 12px;
     }
     .top-header-info {
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
         text-align: center;
     }
     .top-header-area a,
     .seprator {
-        display: block;
+        display: none;
     }
     .donate-box {
-        display: none;
+        /* display: none; */
+        margin-top: -60px !important;
+        margin-right: 40px !important;
+    }
+    .donate-btn{
+        padding:5px 8px !important;
     }
     .fixed-menu {
         padding: 0;
