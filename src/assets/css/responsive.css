@@ -111,7 +111,7 @@
         transform: translate(-50%, -50%);
         right: unset;
         position: absolute;
-        right: -128px !important;
+        right: -90px !important;
         top: 25px !important;
         margin-top: 18px;
     }
@@ -322,7 +322,7 @@
         margin-right: 40px !important;
     }
     .donate-btn{
-        padding:5px 8px !important;
+        padding:5px 4px !important;
     }
     .fixed-menu {
         padding: 0;
