@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./copy-right.component.scss']
 })
 export class CopyRightComponent implements OnInit {
-
-  constructor() { }
+  currentYear: number
+  constructor() {
+    this.currentYear = new Date().getFullYear();
+   }
 
   ngOnInit(): void {
   }
