@@ -17,11 +17,11 @@ export class ContactUsComponent {
 
   createForm() {
     this.contactForm = this.fb.group({
-      name: [''],
-      email: [''],
-      phone: [''],
-      subject: [''],
-      message: ['']
+      name: ['',Validators.required],
+      email: ['',Validators.required],
+      phone: ['',Validators.required],
+      subject: ['',Validators.required],
+      message: ['',Validators.required]
     });
   }
 
