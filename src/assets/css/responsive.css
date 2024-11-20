@@ -105,14 +105,22 @@
         margin-top: 10px;
     }
     .donate-box {
-        left: 50%;
-        top: -39px;
-        margin: 0;
+        /* left: 50%;
+        top: -39px; */
+        /* margin: 0; */
         transform: translate(-50%, -50%);
         right: unset;
+        position: absolute;
+        right: -128px !important;
+        top: 25px !important;
+        margin-top: 18px;
+    }
+
+    .donate-btn{
+        padding:5px 8px !important;
     }
     .main-menu {
-        display: none;
+        /* display: none; */
     }
     .responsive-menu-wrap {
         /* display: block; */
