@@ -1,5 +1,7 @@
 {
+  "outputDirectory": "dist/donation",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  ],
+  "builds": []
 }
