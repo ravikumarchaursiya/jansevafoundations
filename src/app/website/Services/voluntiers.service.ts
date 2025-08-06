@@ -8,10 +8,10 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class VoluntiersService {
-  baseUrl = environment.strapiUrl
-  constructor( private http:HttpClient) { }
+//   baseUrl = environment.strapiUrl
+//   constructor( private http:HttpClient) { }
 
- getVolunteerDetail(data):Observable<any>{
-  return this.http.get(this.baseUrl + data)
- }
+//  getVolunteerDetail(data):Observable<any>{
+//   return this.http.get(this.baseUrl + data)
+//  }
 }

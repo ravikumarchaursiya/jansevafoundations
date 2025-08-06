@@ -8,10 +8,10 @@ import { environment } from 'src/environments/environment';
 })
 export class TestimonialService {
 
-  baseUrl = environment.strapiUrl
-  constructor( private http:HttpClient) { }
+//   baseUrl = environment.strapiUrl
+//   constructor( private http:HttpClient) { }
 
- getTestiminiolDetail(data):Observable<any>{
-  return this.http.get(this.baseUrl + data)
- }
+//  getTestiminiolDetail(data):Observable<any>{
+//   return this.http.get(this.baseUrl + data)
+//  }
 }

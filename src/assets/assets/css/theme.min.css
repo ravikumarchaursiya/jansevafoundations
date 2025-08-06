@@ -20239,9 +20239,9 @@ input::-webkit-outer-spin-button {
   #page-content {
     margin-left: 0;
   }
-  #db-wrapper.toggled #page-content {
+  /* #db-wrapper.toggled #page-content {
     margin-left: 15.6875rem;
-  }
+  } */
   #page-content-for-mini {
     margin-left: 0;
   }
@@ -20276,7 +20276,7 @@ input::-webkit-outer-spin-button {
     margin-left: 0;
   }
   #db-wrapper.toggled #page-content {
-    margin-left: 15.6875rem;
+    /* margin-left: 15.6875rem; */
   }
   #page-content-for-mini {
     margin-left: 0;

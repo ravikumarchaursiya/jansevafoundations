@@ -8,10 +8,10 @@ import { environment } from 'src/environments/environment';
 })
 export class BlogService {
 
-  baseUrl = environment.strapiUrl
+
   constructor( private http:HttpClient) { }
 
- getBlogDetail(data):Observable<any>{
-  return this.http.get(this.baseUrl + data)
- }
+//  getBlogDetail(data):Observable<any>{
+//   return this.http.get(this.baseUrl + data)
+//  }
 }
